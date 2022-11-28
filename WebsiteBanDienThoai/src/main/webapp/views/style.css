@@ -6,8 +6,9 @@
 }
 
 body{
-	 background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
-   	min-height: calc(100vh-40px*2);
+	 background-color: white;
+   	 min-height: calc(100vh-40px*2);
+   	  justify-content: space-between;
 }
 
 header{
@@ -17,7 +18,9 @@ header{
     justify-content: space-between;
     margin: 0px;
 }
-
+bodylogin{
+	background-color:white;
+}
 footer{
 	background-color:green;
 	color: yellow;

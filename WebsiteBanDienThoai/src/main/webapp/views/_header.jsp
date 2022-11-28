@@ -15,7 +15,7 @@
             <u1>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Cart</a></li>
-                <li><a href="login.html">Sign In</a></li>
+                <li><a href="login.jsp">Sign In</a></li>
                 <li><a href="#">Sign Up</a></li>
             </u1>
         </nav>

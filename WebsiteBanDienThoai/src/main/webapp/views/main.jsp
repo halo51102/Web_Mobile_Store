@@ -11,47 +11,6 @@
 <body>
 	<jsp:include page="_header.jsp"></jsp:include>
 	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
-	<jsp:include page="index.jsp"></jsp:include>
 	<jsp:include page="_footer.jsp"></jsp:include>
 </body>
 </html>
