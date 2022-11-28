@@ -2,17 +2,28 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
-    background-color: black;
+	 background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
+   	min-height: calc(100vh-40px*2);
 }
 
 header{
+	
+	background-color:blue;
     display: flex;
     justify-content: space-between;
-    margin: 35px;
+    margin: 0px;
+}
+
+footer{
+	background-color:green;
+	color: yellow;
+	display: flex;
+	justify-content: space-around;
+    margin: 0px;
 }
 
 .logo{
@@ -26,6 +37,7 @@ header{
 u1 li{
     display: inline-block;
     list-style: none;
+    font-family: sans-serif;
 }
 
 u1 li a{
