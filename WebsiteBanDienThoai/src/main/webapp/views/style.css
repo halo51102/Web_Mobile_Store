@@ -2,24 +2,20 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family:  Verdana, Geneva, Tahoma, sans-serif;
+    font-family:  sans-serif;
 }
 
 body{
-	 background-color: white;
-   	 min-height: calc(100vh-40px*2);
-   	  justify-content: space-between;
+	 background-image: linear-gradient(to bottom right, #33475b, #0033CC, #FF77CC, rgb(255, 122, 89));
+	 font-size: 15px;   
 }
 
 header{
-	
+	font-family:sans-serif;
 	background-color:blue;
     display: flex;
     justify-content: space-between;
     margin: 0px;
-}
-bodylogin{
-	background-color:white;
 }
 footer{
 	background-color:green;
@@ -28,7 +24,10 @@ footer{
 	justify-content: space-around;
     margin: 0px;
 }
-
+body body footer{
+	position:relative;
+	z-index:-1;
+}
 .logo{
     font-size: 45px;
     letter-spacing: 3px;
@@ -37,13 +36,19 @@ footer{
     font-weight: 700;
 }
 
-u1 li{
+.header{
+	
+}
+
+.header li{
     display: inline-block;
     list-style: none;
     font-family: sans-serif;
+    margin-top: 15px;
+    margin-right:10px;
 }
 
-u1 li a{
+.header li a{
     color:white;
     margin-left: 30px;
     text-decoration: none;
@@ -53,9 +58,64 @@ u1 li a{
     font-weight: 600;
 }
 
-u1 li a:hover{
+.header li a:hover{
     background-color: white;
     color: black;
     padding: 8px;
     border-radius: 10px;
+}
+
+
+#menu{
+	width:12%;
+}
+#menu ul{
+	background: #528dde;
+	max-width:100%;
+	padding:0;
+	list-style-type:none;
+	text-align:left;
+	
+}
+#menu li{
+	width: auto;
+  	height: 40px;
+  	line-height: 40px;
+  	border-bottom: 1px solid #282828;
+  	padding: 0 1em;
+}
+#menu li a{
+	text-decoration:none;
+	color:#0C0A0A;
+	font-weight:bold;
+	display:block;
+}
+#menu li:hover{
+	background:#b5b5ff;
+}
+#menu ul li{
+	position:relative;
+	font-size:15px;
+}
+#menu .sub-menu{
+	width:200%;
+	position:absolute;
+	left:100%;
+	top:0;
+	display:none;
+}
+#menu li:hover .sub-menu{
+	display:block;
+}
+
+.product{
+	color:white;
+	padding-left:10px;
+	padding-top:8px;
+	width:88%;
+	display:flex;
+	flex-wrap: wrap;
+}
+.product a{
+	height:10px;
 }

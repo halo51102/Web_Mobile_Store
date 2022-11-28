@@ -9,8 +9,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<jsp:include page="_header.jsp"></jsp:include>
+	<img src="./nenInfoSP.jpg" style="width:100%;height:100%;position:absolute;z-index:-1;" alt="">
+	<jsp:include page="_header.jsp"></jsp:include>	
+	<div style="display:flex;height:532px;">
 	<jsp:include page="index.jsp"></jsp:include>
+	<jsp:include page="product.jsp"></jsp:include>
+	</div>
 	<jsp:include page="_footer.jsp"></jsp:include>
+	
 </body>
 </html>

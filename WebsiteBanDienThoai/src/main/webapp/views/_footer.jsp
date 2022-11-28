@@ -10,13 +10,8 @@
 </head>
 <body>
     <footer>
-        <h2 ><a href="#">home</a></h2>
         <div>
-        <nav>
-    	<u1><li>
    	 	@Copyright 2022
-    	</u1>
-    	</nav>
     	</div>
     </footer>
 </body>
