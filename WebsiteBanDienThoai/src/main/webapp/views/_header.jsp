@@ -13,9 +13,9 @@
         <h2 class="logo">Mobile Store</h2>
         <nav>
             <ul class="header">
-                <li><a href="#">Cart</a></li>
+                <li><a href="cart.html">Cart</a></li>
                 <li><a href="login.html">Sign In</a></li>
-                <li><a href="#">Sign Up</a></li>
+                <li><a href="sign-up.html">Sign Up</a></li>
             </ul>
         </nav>
     </header>

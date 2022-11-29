@@ -13,6 +13,7 @@ body{
     padding: 40px;
 }
 
+/*-----SIGN IN AND SIGN UP-----------------------------*/
 .container{
     min-height:  calc(100vh - 40px * 2);
     display: grid;
@@ -33,10 +34,13 @@ body{
     background-color: white;
     display: flex;
     justify-content: center;
+    
 }
 
 .login-right img{
-    flex: 80%;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .login-header{
@@ -64,6 +68,7 @@ p{
 }
 
 .login-form-footer{
+    flex-direction: column;
     display: flex;
     gap: 30px;
     margin-top: 70px;
@@ -81,9 +86,9 @@ a{
     color: black;
     text-decoration: none;
 }
-
-a:hover{
-    background-color: white;
+a img{
+    width: 30px;
+    height: 30px;
 }
 
 .form-item label:not(.checkboxLabel){
@@ -125,7 +130,6 @@ input[type="checkbox"]{
     accent-color: #4158D0;
 }
 
-
 button{
     border: none;
     background-color: #4158D0;
@@ -136,11 +140,111 @@ button{
     font-size: 18px;
     height: 55px;
     cursor: pointer;
+    color: white;
+}
+button:hover{
+    background-color: #FFCC70;
+    color: white;
 }
 
+.sign-up-header{
+    margin-top: 50px;
+}
+
+
+/*------CART-----------------------------------------------*/
+.cart-page{
+	margin: 80px 200px;
+    background-color: #fff;
+    padding: 30px 30px;
+    border-radius: 10px;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart-info a:hover{
+    background-color: #C850C0;
+    color: #fff;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background: #4158D0;
+    font-weight: normal;
+}
+th:last-child{
+    text-align: right;
+}
+
+
+td{
+    padding: 10px 5px;
+}
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+td a{
+    border: none;
+    background-color: #4158D0;
+    color: #fff;
+    font-size: 12px;
+}
+td a:hover{
+    background-color: white;
+    color: #4158D0;
+}
+td img{
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+}
+td a{
+    margin-top: 10px;
+}
+td .product-name{
+    margin-bottom: 10px;
+}
+td:last-child{
+    text-align: right;
+}
+
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+}
+.total-price table{
+    border-top: 3px solid #4158D0;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+
+
+
+
+
+
+/*-----media query screen-----*/
 @media(max-width:1350px){
     .login-left{
         padding: 50px !important;
+    }
+
+    .login-header{
+        margin-top: 30px;
     }
 
     .login-form{
@@ -152,6 +256,7 @@ button{
         gap: 15px;
         }
 }
+
 @media(max-width:768px){
     .container{
         grid-template-columns: auto;
