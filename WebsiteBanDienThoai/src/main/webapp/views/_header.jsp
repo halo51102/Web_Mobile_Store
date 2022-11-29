@@ -13,8 +13,6 @@
         <h2 class="logo">Mobile Store</h2>
         <nav>
             <ul class="header">
-                <li><a href="cart.html">Cart</a></li>
-
             	<li><a href="#">Home</a></li>
             	<div class="dropdown">
 				<li><a class="dropbtn">Category</a>
@@ -25,16 +23,16 @@
 					</div>
 				</li>
 				</div>
-				<li><a href="#">Sale</a></li>
+				<li><a href="#sale">Sale</a></li>
 				<div class="dropdown">
 				<li><a class="dropbtn">Info</a>
 					<div class="dropdown-content">
 						<a href="#">Contact</a>
-						<a href="#">About</a>
+						<a href="#About">About</a>
 					</div>
 				</li>
 				</div>
-                <li><a href="#">Cart</a></li>
+                <li><a href="cart.html">Cart</a></li>
                 <li><a href="login.html">Sign In</a></li>
                 <li><a href="sign-up.html">Sign Up</a></li>
             </ul>
