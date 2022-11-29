@@ -12,6 +12,8 @@
     <footer>
         <div>
    	 	@Copyright 2022
+   	 	<p>SĐT liên hệ: 09xxxxxxxx</p>
+   	 	<p>Địa chỉ: Số 1 Võ Văn Ngân, Thủ Đức</p>
     	</div>
     </footer>
 </body>

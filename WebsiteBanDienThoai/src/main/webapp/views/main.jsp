@@ -17,9 +17,20 @@
 	
 		<h1 id="About" style="font-size:70px;display: flex;justify-content: space-around; margin:50px;">About</h1>
 		<div class="grid-container">
-		<div class="item1">VNPAY ứng dụng công nghệ hiện đại, đột phá trong lĩnh vực thanh toán điện tử nhằm xây dựng hệ sinh thái dịch vụ đa dạng về sản phẩm, tiện ích, mang tới những trải nghiệm dịch vụ ưu việt phục vụ khách hàng và đối tác.</div>
-		<div class="item2">Content</div>		
-		<div class="item3">Content</div>
+		<div class="item1">Ứng dụng được xây dựng chủ yếu phục vụ 2 đối tượng là người mua hàng và người bán hàng
+	</div>
+		<div class="item2">Khách vãng lai:
+Có thể tra cứu sản phẩm trực tiếp trên sản phẩm, có thể xem các thông tin về sản phẩm như tên, mẫu mã, giá, bài giới thiệu…
+Đăng ký tài khoản để trở khách hàng, thực hiện các bước mua hàng và thanh toán
+</div>		
+		<div class="item3">Khách hàng:
+Đăng nhập tài khoản trên ứng dụng để tiến hành mua hàng, thanh toán
+Đăng xuất tài khoản
+Tra cứu sản phẩm, xem thông tin sản phẩm
+Xem tình trạng đơn hàng
+Chỉnh sửa thông tin cá nhân
+Giỏ hàng
+		</div>
 		
 		</div>
 	
