@@ -236,6 +236,7 @@ td:last-child{
     padding-right: 100px;
     border-radius: 10px;
     padding-top: 50px;
+    padding-bottom: 50px;
     margin: 50px;
 }
 
@@ -281,6 +282,8 @@ select{
 select:focus{
     outline:no
 }
+
+
 
 
 
