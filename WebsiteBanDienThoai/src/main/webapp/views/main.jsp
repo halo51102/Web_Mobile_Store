@@ -18,8 +18,8 @@
 		<h1 id="About" style="font-size:70px;display: flex;justify-content: space-around; margin:50px;">About</h1>
 		<div class="grid-container">
 		<div class="item1">VNPAY ứng dụng công nghệ hiện đại, đột phá trong lĩnh vực thanh toán điện tử nhằm xây dựng hệ sinh thái dịch vụ đa dạng về sản phẩm, tiện ích, mang tới những trải nghiệm dịch vụ ưu việt phục vụ khách hàng và đối tác.</div>
-		<div class="item2">dfghaowg;rohhfweu  dưefgewhfbhewhewkfb</div>		
-		<div class="item3">dfghaowg;rohhfweu  dưefgewhfbhewhkfweh</div>
+		<div class="item2">Content</div>		
+		<div class="item3">Content</div>
 		
 		</div>
 	

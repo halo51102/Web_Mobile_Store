@@ -17,13 +17,13 @@
             	<div class="dropdown">
 				<li><a class="dropbtn">Category</a>
 					<div class="dropdown-content">
-						<a href="#">Mobile Phone</a>
+						<a href="product.html">Mobile Phone</a>
 						<a href="#">Accessory</a>
 						<a href="#">?</a>
 					</div>
 				</li>
 				</div>
-				<li><a href="#sale">Sale</a></li>
+				<li><a href=#sale>Sale</a></li>
 				<div class="dropdown">
 				<li><a class="dropbtn">Info</a>
 					<div class="dropdown-content">
