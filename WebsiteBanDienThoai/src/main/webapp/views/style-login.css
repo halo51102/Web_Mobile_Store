@@ -219,7 +219,6 @@ td:last-child{
     text-align: right;
 }
 
-
 .total-price{
     display: flex;
     justify-content: flex-end;
@@ -230,14 +229,64 @@ td:last-child{
     max-width: 400px;
 }
 
+/*-----PRODUCTS------------------------------------------------*/
+.container-product{
+    background-color: #fff;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 10px;
+    padding-top: 50px;
+    margin: 50px;
+}
+
+h2{
+    margin: 0;
+}
+
+.row{
+    background-color: #fff;
+    margin: 50px auto 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.row-head{
+    margin-top: 0px;
+    justify-content: space-between;
+}
+
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin-bottom: 50px;
+}
+
+.col-4:hover{
+    transform: translateY(-5px);
+    background-color: #4158D0;
+    color: #fff;
+}
+
+.col-4 img{
+    width: 100%;
+}
+
+select{
+    border: 1px solid #4158D0;
+    padding: 5px;
+}
+select:focus{
+    outline:no
+}
 
 
 
 
 
-
-
-/*-----media query screen-----*/
+/*-----media query screen--------------------------------------*/
 @media(max-width:1350px){
     .login-left{
         padding: 50px !important;
