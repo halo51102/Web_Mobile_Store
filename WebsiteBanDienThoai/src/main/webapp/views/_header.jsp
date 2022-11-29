@@ -14,10 +14,32 @@
         <nav>
             <ul class="header">
                 <li><a href="cart.html">Cart</a></li>
+
+            	<li><a href="#">Home</a></li>
+            	<div class="dropdown">
+				<li><a class="dropbtn">Category</a>
+					<div class="dropdown-content">
+						<a href="#">Mobile Phone</a>
+						<a href="#">Accessory</a>
+						<a href="#">?</a>
+					</div>
+				</li>
+				</div>
+				<li><a href="#">Sale</a></li>
+				<div class="dropdown">
+				<li><a class="dropbtn">Info</a>
+					<div class="dropdown-content">
+						<a href="#">Contact</a>
+						<a href="#">About</a>
+					</div>
+				</li>
+				</div>
+                <li><a href="#">Cart</a></li>
                 <li><a href="login.html">Sign In</a></li>
                 <li><a href="sign-up.html">Sign Up</a></li>
             </ul>
         </nav>
     </header>
+    
 </body>
 </html>

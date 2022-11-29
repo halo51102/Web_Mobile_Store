@@ -8,35 +8,6 @@
 </head>
 <body>
 <div class="product">
-<a>Product 1</a>
-<a>Product 1</a>
-
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
-<a>Product 1</a>
 
 </div>
 </body>
