@@ -55,7 +55,7 @@
 </body>
 </html>
 <!-- partial -->
-  <script src="script.js"></script>
+  <script src="/WebsiteBanDienThoai/views/script.js"></script>
 
 </body>
 </html>

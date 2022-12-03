@@ -6,8 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <title>Main</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/WebsiteBanDienThoai/views/style.css">
 </head>
+
 <body>
 	<img src="./images/nenInfoSP.jpg" style="width:100%;height:100%;position:absolute;z-index:-1;" alt="">
 	<jsp:include page="_header.jsp"></jsp:include>
@@ -38,6 +39,9 @@ Giỏ hàng
 	
 
 	<jsp:include page="_footer.jsp"></jsp:include>
-	
+
+
+  
+
 </body>
 </html>

@@ -33,8 +33,8 @@
 				</li>
 				</div>
                 <li><a href="cart.html">Cart</a></li>
-                <li><a href="login.html">Sign In</a></li>
-                <li><a href="sign-up.html">Sign Up</a></li>
+                <li><a href="login" method="post">Sign In</a></li>
+                <li><a href="sign-up" method="post">Sign Up</a></li>                
             </ul>
         </nav>
     </header>
