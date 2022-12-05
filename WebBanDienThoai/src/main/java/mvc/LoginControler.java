@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import bean.Login;
 import conn.DBConnection;
 import utils.DBUtils;
 import jakarta.servlet.RequestDispatcher;
@@ -19,6 +20,7 @@ import jakarta.servlet.http.*;
 public class LoginControler extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException,IOException{
+		
 		RequestDispatcher dispatcher = request.getServletContext()
                 .getRequestDispatcher("/views/login.html");
         dispatcher.forward(request, response);

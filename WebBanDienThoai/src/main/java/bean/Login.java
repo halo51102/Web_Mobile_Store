@@ -1,6 +1,6 @@
-package mvc;
+package bean;
 
-public class LoginBean {
+public class Login {
 	
 	public String name,password;
 	public String getName() {
