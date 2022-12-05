@@ -24,7 +24,14 @@ public class CheckAccControler extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		String name=request.getParameter("name");
 		String password=request.getParameter("password");
+		/*
+		LoginBean bean=new LoginBean();
+		bean.setName(name);
+		bean.setPassword(password);
+		request.setAttribute("bean", bean);
 		
+		boolean status =bean.validate();
+		*/
 		Login bean=new Login();
 		Connection conn;
 		String errorString="";
@@ -46,6 +53,7 @@ public class CheckAccControler extends HttpServlet {
 			RequestDispatcher rd=request.getRequestDispatcher("/views/login-success.jsp");
 			rd.forward(request, response);
 		}
+		
 		
 	}
 	@Override

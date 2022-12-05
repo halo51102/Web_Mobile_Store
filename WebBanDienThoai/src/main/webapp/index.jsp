@@ -10,7 +10,9 @@
 </head>
 <body>
 	<img src="./images/nenInfoSP.jpg" style="width:100%;height:100%;position:absolute;z-index:-1;" alt="">
+	<div class="included-header">
 	<jsp:include page="/views/_header.jsp"></jsp:include>
+	</div>
 	<jsp:include page="/views/sale.jsp"></jsp:include>
 	<!-- ABOUT -->
 	<div style="color:white">

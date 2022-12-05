@@ -16,7 +16,12 @@ header{
     display: flex;
     justify-content: space-between;
     margin: 0px;
-    positioned:fixed;
+    position:fixed;
+    top:0;
+}
+.included-header{
+	position:fixed;
+	top:0;
 }
 footer{
 	background-color:green;
