@@ -11,7 +11,8 @@
 <body>
 <p>You are successfully logged in!</p>
 <%
-out.print("Welcome, ");
+Login bean=(Login) request.getAttribute("bean");
+out.print("Welcome, "+ bean.getName());
 %>
 </body>
 </html>
