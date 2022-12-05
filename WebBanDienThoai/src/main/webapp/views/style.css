@@ -1,8 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&displl");
 *{
     margin:0;
     padding:0;
     box-sizing: border-box;
-    font-family:  sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 body{
@@ -16,8 +17,15 @@ header{
     display: flex;
     justify-content: space-between;
     margin: 0px;
-    positioned:fixed;
+    position :fixed;
+    top: 0;
 }
+
+.included-header{
+	position :fixed;
+    top: 0;
+}
+
 footer{
 	background-color:green;
 	color: yellow;
@@ -33,13 +41,13 @@ body body footer{
     font-size: 35px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color:white;
+    color: white;
     font-weight: 700;
+    
 }
 
-.header{
-	
-}
+
+
 
 .header li{
     display: inline-block;
