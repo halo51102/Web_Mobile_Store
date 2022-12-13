@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail</title>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -74,7 +75,7 @@
     
             <div class="single-pro-details">
                 <h2>Product</h2>
-                <h3>$59.00</h3>
+                <h3>$<span>59.00</span></h3>
                 <select>
                     <option value="">Select Storage</option>
                     <option value="">64GB</option>
@@ -82,7 +83,7 @@
                     <option value="">256GB</option>
                 </select>
                 <input type="number" value="1">
-                <button>Add to Cart</button>
+                <button onclick="addToCart(this)">Add to Cart</button>
                 <h4>Product Details</h4>
                 <span>Content Content Content Content
                     Content Content Content Content Content
@@ -95,6 +96,7 @@
                 </span>
             </div>
         </section>
+        <div id="mycart"></div>
     </div>
 
     <!-- FOOTER -->

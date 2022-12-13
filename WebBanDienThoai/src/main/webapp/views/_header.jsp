@@ -32,9 +32,10 @@
 					</div>
 				</li>
 				</div>
-                <li><a href="cart" method="post">Cart</a></li>
-                <li><a href="login" method="post">Sign In</a></li>
-                <li><a href="sign-up" method="post">Sign Up</a></li>                
+                <li><a href="cart" method="post" id="cart">Cart</a></li>
+                <li><a href="login" method="post" id="sign-in">Sign In</a></li>
+                <li><a href="sign-up" method="post" id="sign-up">Sign Up</a></li> 
+
             </ul>
         </nav>
     </header>

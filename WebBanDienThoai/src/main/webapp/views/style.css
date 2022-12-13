@@ -87,7 +87,7 @@ body body footer{
 }
 
 .nav li{
-    display:inline-block;
+    display: inline-block;
     list-style: none;
     font-family: sans-serif;
     margin-top: 10px;
@@ -103,7 +103,7 @@ body body footer{
     font-size: 12px;
     transition: 0.4s;
     font-weight: 600;
-  display:flex;
+    display:flex;
 }
 
 .header li a:hover{
@@ -248,6 +248,7 @@ body body footer{
 }
 /*-- FEATURED PRODUCT --*/
 .container-product{
+  
   background-color: #fff;
   padding-left: 100px;
   padding-right: 100px;
@@ -255,6 +256,7 @@ body body footer{
   padding-top: 50px;
   padding-bottom: 50px;
   margin: 50px;
+  margin-top: 150px;
 }
 .row{
   background-color: #fff;
@@ -368,6 +370,96 @@ body body footer{
   line-height: 25%;
 }
 
+/* -- PAGE PRODUCT ----------*/
+
+
+
+/*------CART-----------------------------------------------*/
+.cart-page{
+	margin: 80px 200px;
+    background-color: #fff;
+    padding: 30px 30px;
+    border-radius: 10px;
+    margin-top: 150px;
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.cart-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cart-info a:hover{
+    background-color: #C850C0;
+    color: #fff;
+}
+
+th{
+    text-align: left;
+    padding: 5px;
+    color: #fff;
+    background: #4158D0;
+    font-weight: normal;
+}
+th:last-child{
+    text-align: right;
+}
+
+
+td{
+    padding: 10px 5px;
+}
+td input{
+    width: 40px;
+    height: 30px;
+    padding: 5px;
+}
+.cart-page td a{
+    flex: 6;
+    gap: 15px;
+    border: 1px solid black;
+    border-radius: 100px;
+    padding: .6rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+    border: none;
+    background-color: #4158D0;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+td img{
+    width: 120px;
+    height: 120px;
+    margin-right: 10px;
+}
+
+td .product-name{
+    margin-bottom: 10px;
+    padding-top: 15px;
+    font-size: 15px;
+}
+td:last-child{
+    text-align: right;
+}
+
+.total-price{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 13px;
+}
+.total-price table{
+    border-top: 3px solid #4158D0;
+    width: 100%;
+    max-width: 400px;
+}
 
 
 
