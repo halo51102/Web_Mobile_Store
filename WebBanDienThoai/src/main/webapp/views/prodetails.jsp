@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,20 +15,20 @@
     <div>
 	<jsp:include page="/views/_header.jsp"></jsp:include>
     </div>
-    
+   
     <div class="container-product container-prodetails">
         <section id="prodetails" class="section-p1">
             <div class="single-pro-img">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQzwpS-foXxAzV8QUaD_wmUoXeDuCvGgPaAw&usqp=CAU" 
+                <img src="${product.p1}" 
                 id="MainImg" alt="">
     
                 <div class="small-img-group">
                     <div class="small-img-col">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQzwpS-foXxAzV8QUaD_wmUoXeDuCvGgPaAw&usqp=CAU" 
+                        <img src="${product.p1}" 
                         alt="" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYCmi3g4KOM6p68LSO3FQ6eyhIVRe6ULz0iw&usqp=CAU" 
+                        <img src="${product.p2}" 
                         alt="" class="small-img">
                     </div>
                     <div class="small-img-col">
@@ -40,8 +43,8 @@
             </div>
     
             <div class="single-pro-details">
-                <h2>Product</h2>
-                <h3>$59.00</h3>
+                <h2>${product.name}</h2>
+                <h3>${product.cost}</h3>
                 <select>
                     <option value="">Select Storage</option>
                     <option value="">64GB</option>
@@ -51,15 +54,7 @@
                 <input type="number" value="1">
                 <button>Add to Cart</button>
                 <h4>Product Details</h4>
-                <span>Content Content Content Content
-                    Content Content Content Content Content
-                    Content Content Content Content Content 
-                    Content Content Content Content Content
-                    Content Content Content Content
-                    Content Content Content Content Content
-                    Content Content Content Content Content 
-                    Content Content Content Content Content
-                </span>
+                <span>${product.describe}</span>
             </div>
         </section>
     </div>

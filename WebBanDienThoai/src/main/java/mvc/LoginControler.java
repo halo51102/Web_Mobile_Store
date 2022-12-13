@@ -21,14 +21,42 @@ public class LoginControler extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException,IOException{
 		
-		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/login.html");
-        dispatcher.forward(request, response);
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		String name=request.getParameter("name");
+		String password=request.getParameter("password");
+		
+		Login bean=new Login();
+		Connection conn;
+		String errorString="";
+		
+		try {
+			conn=DBConnection.getConnection();
+			bean=DBUtils.findUser(conn, name, password);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("bean",bean);
+		HttpSession ssid=request.getSession();
+		
+		if(bean==null) {
+			RequestDispatcher rd=request.getRequestDispatcher("/views/login-error.jsp");
+			rd.forward(request, response);
+		}else {
+			ssid.setAttribute("ssid",bean.getName());
+			response.sendRedirect("home");
+		}
+		
 		
 	}
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-		doPost(req,resp);
+		RequestDispatcher dispatcher = request.getServletContext()
+                .getRequestDispatcher("/views/login.html");
+        dispatcher.forward(request, response);
 	}
 }

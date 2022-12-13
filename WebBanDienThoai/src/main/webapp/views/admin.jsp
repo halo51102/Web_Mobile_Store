@@ -16,15 +16,15 @@
 	<div>
 		<nav>
 			<ul>
-				<li><a>Home</a></li>
+				<li><a href="admin">Home</a></li>
 				<li><a href="productList" method="post">MobilePhone</a></li>
-				<li><a>Accessory</a></li>
+				<li><a href="accessoryList" method="post">Accessory</a></li>
+				<li><a>Sale</a></li>
 				<li><a>Bill</a></li>
-				<li><a>Home</a></li>
+				<li><a href="home">Homepage Website MobilePhone</a></li>
 			</ul>
 		</nav>
 	</div>
-	
 </div>
 </body>
 </html>

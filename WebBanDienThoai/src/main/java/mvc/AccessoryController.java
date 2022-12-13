@@ -20,14 +20,14 @@ import conn.DBConnection;
 /**
  * Servlet implementation class ProductController
  */
-@WebServlet("/product")
-public class ProductController extends HttpServlet {
+@WebServlet("/accessory")
+public class AccessoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductController() {
+    public AccessoryController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,14 +46,14 @@ public class ProductController extends HttpServlet {
 		}
 		List<Product> list=null;
 		try {
-			list=ProductDB.listProduct(conn);
+			list=ProductDB.listAccessory(conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("ProductList", list);		
+		request.setAttribute("AccessoryList", list);		
 		response.setContentType("text/html;charset=UTF-8");
 		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/product.jsp");
+                .getRequestDispatcher("/views/accessory.jsp");
         dispatcher.forward(request, response);
 	}
 

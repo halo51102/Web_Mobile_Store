@@ -16,18 +16,18 @@ import java.util.List;
 import bean.Product;
 import conn.DBConnection;
 
-
 /**
- * Servlet implementation class ProductController
+ * Servlet implementation class AccessoryListController
  */
-@WebServlet("/product")
-public class ProductController extends HttpServlet {
+
+@WebServlet(name="AccessoryList",urlPatterns= {"/accessoryList"})
+public class AccessoryListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductController() {
+    public AccessoryListController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -46,15 +46,17 @@ public class ProductController extends HttpServlet {
 		}
 		List<Product> list=null;
 		try {
-			list=ProductDB.listProduct(conn);
+			list=ProductDB.listAccessory(conn);
+			System.out.print(list.isEmpty());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("ProductList", list);		
+		request.setAttribute("AccessoryList", list);	
 		response.setContentType("text/html;charset=UTF-8");
-		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/product.jsp");
-        dispatcher.forward(request, response);
+		RequestDispatcher dispatcher=request.getServletContext()
+				.getRequestDispatcher("/views/managerAccessory.jsp");
+		dispatcher.forward(request, response);
+		
 	}
 
 	/**

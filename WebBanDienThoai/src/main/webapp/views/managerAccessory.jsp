@@ -27,7 +27,7 @@
 			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
-		<c:forEach items="${ProductList}"  var="product" >
+		<c:forEach items="${AccessoryList}"  var="product" >
 			<tr>
 				<td>${product.id}</td>
 				<td>${product.name}</td>

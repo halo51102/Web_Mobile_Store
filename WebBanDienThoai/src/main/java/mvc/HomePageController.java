@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -29,8 +31,18 @@ public class HomePageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		
+		String username=request.getParameter("username");
+		//request.setAttribute("user", username);
+		
+		HttpSession ssid=request.getSession();
+		if(username==null) {
+			
+		}
+		
 		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/main.jsp");
+                .getRequestDispatcher("/index.jsp");
         dispatcher.forward(request, response);
 	}
 

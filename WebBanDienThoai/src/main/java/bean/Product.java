@@ -11,10 +11,11 @@ public class Product {
 	private String p2;
 	private String p3;
 	private String p4;
+	private String describe;
 	
 	public Product() {}
 	public Product(int id,String name,String type,String category,
-			int cost,int amount,String p1, String p2, String p3, String p4) {
+			int cost,int amount,String p1, String p2, String p3, String p4, String describe) {
 		super();
 		this.id=id;
 		this.name=name;
@@ -26,6 +27,7 @@ public class Product {
 		this.p2=p2;
 		this.p3=p3;
 		this.p4=p4;
+		this.describe=describe;
 	}
 	
 	public int getId() {
@@ -87,5 +89,11 @@ public class Product {
 	}
 	public void setP4(String p4) {
 		this.p4=p4;
+	}
+	public String getDescribe() {
+		return describe;
+	}
+	public void setDescribe(String describe) {
+		this.describe=describe;
 	}
 }
