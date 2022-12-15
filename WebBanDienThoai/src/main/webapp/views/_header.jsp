@@ -24,18 +24,17 @@
 						</div>
 					</li>
 					</div>
-					<li><a id="notdropbtn" href=#sale>Sale</a></li>
+					<li><a id="notdropbtn" href=home#sale>Sale</a></li>
 					<div class="dropdown">
 					<li><a class="dropbtn">Info</a>
 						<div class="dropdown-content">
-							<a href="#">Contact</a>
-							<a href="#about">About</a>
+							<a href="home#contact">Contact</a>
+							<a href="home#about">About</a>
 						</div>
 					</li>
 					</div>
 					<c:if test="${empty ssid}">
-					<li><a id="notdropbtn" href="login">Sign In</a></li>
-					<li><a id="notdropbtn" href="sign-up" method="post">Sign Up</a></li>					  
+					<li><a id="notdropbtn" href="login">Sign In</a></li>				  
        				</c:if>
        				<c:if test="${not empty ssid}">
        				<li><a id="notdropbtn" href="cart">Cart</a></li>	

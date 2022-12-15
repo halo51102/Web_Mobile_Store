@@ -12,9 +12,9 @@
 </head>
 <body>
     <!-- HEADER -->
-    <div>
+    
 	<jsp:include page="/views/_header.jsp"></jsp:include>
-    </div>
+    
    
     <div class="container-product container-prodetails">
         <section id="prodetails" class="section-p1">
@@ -45,12 +45,6 @@
             <div class="single-pro-details">
                 <h2>${product.name}</h2>
                 <h3>${product.cost}</h3>
-                <select>
-                    <option value="">Select Storage</option>
-                    <option value="">64GB</option>
-                    <option value="">128GB</option>
-                    <option value="">256GB</option>
-                </select>
                 <input type="number" value="1">
                 <button>Add to Cart</button>
                 <h4>Product Details</h4>
