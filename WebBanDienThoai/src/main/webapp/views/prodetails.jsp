@@ -32,11 +32,11 @@
                         alt="" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQzwpS-foXxAzV8QUaD_wmUoXeDuCvGgPaAw&usqp=CAU" 
+                        <img src="${product.p3}" 
                         alt="" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYCmi3g4KOM6p68LSO3FQ6eyhIVRe6ULz0iw&usqp=CAU" 
+                        <img src="${product.p4}" 
                         alt="" class="small-img">
                     </div>
                 </div>

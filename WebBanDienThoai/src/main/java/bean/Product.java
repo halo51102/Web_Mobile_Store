@@ -66,7 +66,7 @@ public class Product {
 	public void setAmount(int amount) {
 		this.amount=amount;
 	}
-	public String getp1() {
+	public String getP1() {
 		return p1;
 	}
 	public void setP1(String p1) {

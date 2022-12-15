@@ -60,6 +60,70 @@ public class ProductListController extends HttpServlet{
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)
 			throws ServletException, IOException{
 		//TODO Auto-generated method stub
-		doGet(request,response);
+		Connection conn=null;
+		try {
+			conn=DBConnection.getConnection();
+		}catch(ClassNotFoundException e1){
+			e1.printStackTrace();
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		
+		String idpr=(String)request.getParameter("idpr");
+		String namepr=(String)request.getParameter("namepr");
+		String typepr=(String)request.getParameter("typepr");
+		String categorypr="phone";
+		String costpr=(String)request.getParameter("costpr");
+		String amountpr=(String)request.getParameter("amountpr");
+		String p1=(String)request.getParameter("prp1");
+		String p2=(String)request.getParameter("prp2");
+		String p3=(String)request.getParameter("prp3");
+		String p4=(String)request.getParameter("prp4");
+		String despr=(String)request.getParameter("despr");
+		
+		int id=0;
+		int cost=0;
+		int amount=0;
+		
+		try {
+			id=Integer.parseInt(idpr);
+			cost=Integer.parseInt(costpr);
+			amount=Integer.parseInt(amountpr);
+		}catch(Exception e) {}
+		
+		Product exist=new Product();
+		try {
+			exist=ProductDB.findProduct(conn, id);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		while(exist!=null)
+		{
+			id=id+1;
+			try {
+				exist=ProductDB.findProduct(conn, id);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		Product pr=new Product(id,namepr,typepr,categorypr,cost,amount,p1,p2,p3,p4,despr);
+		String err=null;
+		try {
+			ProductDB.addProduct(conn, pr);
+		}catch(SQLException e) {
+			e.printStackTrace();
+			err=e.getMessage();
+		}
+		
+		request.setAttribute("err", err);
+		if(err!=null) {
+			RequestDispatcher dis=request.getServletContext()
+					.getRequestDispatcher("productList");
+			dis.forward(request,response);
+		}else {
+			response.sendRedirect("productList");
+		}
 	}
 }

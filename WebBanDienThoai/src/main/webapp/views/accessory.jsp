@@ -8,7 +8,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PRODUCT</title>
-    <link rel="stylesheet" href="/WebBanDienThoai/views/style-login.css">
     <link rel="stylesheet" href="/WebBanDienThoai/views/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -18,7 +17,7 @@
     <jsp:include page="_header.jsp"></jsp:include>
 
 
-    <div class="container-product">
+    <div class="container-product" style="margin-top:150px;">
         <div class="row row-head">
             <h2>Products</h2>
             <select>
@@ -34,7 +33,7 @@
 	 			
                 
                 <c:forEach items="${AccessoryList}"  var="product" >
-				<div class="col-4">
+				<div class="col-4" onclick="window.location.href='productdetail?productid=${product.id}'">
                     <img src="${product.p1}"alt="">
                     <h4>${product.name}</h4>
                     <div class="rating">

@@ -11,23 +11,21 @@ import utils.ProductDB;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 import bean.Product;
 import conn.DBConnection;
 
 /**
- * Servlet implementation class AccessoryListController
+ * Servlet implementation class ProductEditController
  */
-
-@WebServlet(name="AccessoryList",urlPatterns= {"/accessoryList"})
-public class AccessoryListController extends HttpServlet {
+@WebServlet("/editProduct")
+public class ProductEditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccessoryListController() {
+    public ProductEditController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,26 +35,38 @@ public class AccessoryListController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Connection conn=null;
+		Connection conn = null;
 		try {
-			conn=DBConnection.getConnection();
+			conn = DBConnection.getConnection();
 		} catch (ClassNotFoundException | SQLException e1) {
-			//TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		List<Product> list=null;
-		try {
-			list=ProductDB.listAccessory(conn);
-			System.out.print(list.isEmpty());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		request.setAttribute("AccessoryList", list);	
-		response.setContentType("text/html;charset=UTF-8");
-		RequestDispatcher dispatcher=request.getServletContext()
-				.getRequestDispatcher("/views/managerAccessory.jsp");
-		dispatcher.forward(request, response);
 		
+		String idpr=(String) request.getParameter("idpr");
+		
+		int id = 0;
+		try {
+            id = Integer.parseInt(idpr);
+        } catch (Exception e) {
+        }
+		Product pr=null;
+		String err=null;
+		try {
+			pr=ProductDB.findProduct(conn, id);
+		}catch(SQLException e) {
+            e.printStackTrace();
+            err = e.getMessage();
+        }	 
+		if(err!=null&&pr==null) {
+			response.sendRedirect(request.getServletPath()+"productList");
+			return;
+		}
+		request.setAttribute("err", err);
+		request.setAttribute("editpr", pr);
+		
+		RequestDispatcher dis=request.getServletContext()
+				.getRequestDispatcher("/views/editProduct.jsp");
+		dis.forward(request,response);
 	}
 
 	/**
@@ -64,19 +74,17 @@ public class AccessoryListController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Connection conn=null;
+		Connection conn = null;
 		try {
-			conn=DBConnection.getConnection();
-		}catch(ClassNotFoundException e1){
-			e1.printStackTrace();
-		}catch(SQLException e1) {
+			conn = DBConnection.getConnection();
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		String idpr=(String)request.getParameter("idpr");
 		String namepr=(String)request.getParameter("namepr");
 		String typepr=(String)request.getParameter("typepr");
-		String categorypr="accessory";
 		String costpr=(String)request.getParameter("costpr");
 		String amountpr=(String)request.getParameter("amountpr");
 		String p1=(String)request.getParameter("prp1");
@@ -101,34 +109,41 @@ public class AccessoryListController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		while(exist!=null)
+		String categorypr=null;
+		if(exist!=null)
 		{
-			id=id+1;
-			try {
-				exist=ProductDB.findProduct(conn, id);
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
+			categorypr=exist.getCategory();
 		}
 		
 		Product pr=new Product(id,namepr,typepr,categorypr,cost,amount,p1,p2,p3,p4,despr);
 		String err=null;
 		try {
-			ProductDB.addProduct(conn, pr);
+			ProductDB.editProduct(conn, pr);
 		}catch(SQLException e) {
 			e.printStackTrace();
 			err=e.getMessage();
+			
 		}
-		
 		request.setAttribute("err", err);
+		request.setAttribute("editpr", pr);
+		
 		if(err!=null) {
 			RequestDispatcher dis=request.getServletContext()
-					.getRequestDispatcher("accessoryList");
+					.getRequestDispatcher("/editProduct");
 			dis.forward(request,response);
 		}else {
-			response.sendRedirect("accessoryList");
+			String s1=new String("phone     ");
+			String s2=new String("accessory ");
+			if(pr.getCategory().equals(s1))
+			{
+				response.sendRedirect("productList");
+			}
+			else if(pr.getCategory().equals(s2)) {
+				response.sendRedirect("accessoryList");
+			}
 		}
+		
 	}
 
 }
+;
