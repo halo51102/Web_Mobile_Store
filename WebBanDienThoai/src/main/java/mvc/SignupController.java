@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import utils.DBUtils;
 import utils.ProductDB;
 
@@ -69,13 +70,20 @@ public class SignupController extends HttpServlet {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
-		while(exist!=null)
-		{
-			
+		int id=0;
+		String newname=name;
+		while(exist!=null) {
+			String ids=Integer.toString(id);
+			newname=name+ids;
+			try {
+				exist=DBUtils.findUserForSignUp(conn,newname);
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			id=id+1;
 		}
 		
-		Login lg=new Login(name,pass,gender,type,sdt,address);
+		Login lg=new Login(newname,pass,gender,type,sdt,address);
 		String err=null;
 		
 		try {
@@ -84,15 +92,19 @@ public class SignupController extends HttpServlet {
 			e.printStackTrace();
 			err=e.getMessage();
 		}
+		request.setAttribute("newlg", lg);
 		
+		HttpSession newlogin=request.getSession();
 		request.setAttribute("err", err);
 		if(err!=null) {
 			RequestDispatcher dis=request.getServletContext()
-					.getRequestDispatcher("login");
+					.getRequestDispatcher("sign-up");
 			dis.forward(request,response);
 		}else {
+			newlogin.setAttribute("newlg", lg);
 			response.sendRedirect("login");
 		}
+		
 	}
 
 }

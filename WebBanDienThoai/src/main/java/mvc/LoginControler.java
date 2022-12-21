@@ -11,7 +11,6 @@ import utils.DBUtils;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.*;
 /**
  * Servlet implementation class LoginControler
@@ -55,8 +54,11 @@ public class LoginControler extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
+		
 		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/login.html");
+                .getRequestDispatcher("/views/login.jsp");
         dispatcher.forward(request, response);
+        HttpSession ssid=request.getSession();
+		ssid.removeAttribute("newlg");
 	}
 }

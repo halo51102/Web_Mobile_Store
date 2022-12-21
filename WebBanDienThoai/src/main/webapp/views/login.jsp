@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +16,9 @@
             <div class="login-header">
                 <h1>Welcome to Mobile Store&#174;</h1>
                 <c:if test="${not empty newlg}">
-                <p>Created account successfully with name: ${newlg.getName} and password: ${newlg.getPassword}</p>
+                <p>Created account successfully with ...</p>
+                <p>Username: ${newlg.name}</p>
+                <p>Password: ${newlg.password}</p>
                 </c:if>
                 <p>Please sign-in to discover and shopping.</p>
             </div>
