@@ -64,7 +64,7 @@
 
 </body>
 	    </html>
-	<script src="views/script.js"></script>
+	<script src="WebBanDienThoai/views/script.js"></script>
 	</div>
 	
 	<!-- PRODUCT -->
