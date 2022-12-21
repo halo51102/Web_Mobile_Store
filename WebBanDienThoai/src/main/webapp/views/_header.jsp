@@ -37,7 +37,7 @@
 					<li><a id="notdropbtn" href="login">Sign In</a></li>				  
        				</c:if>
        				<c:if test="${not empty ssid}">
-       				<li><a id="notdropbtn" href="cart">Cart</a></li>	
+       				<li><a id="notdropbtn" href="cart?username=${ssid}">Cart</a></li>	
        				<li><a id="notdropbtn" href="logout">Logout</a></li>	
        				</c:if>
 				</ul>

@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import bean.Login;
 
@@ -57,5 +59,22 @@ public class DBUtils {
 		pstm.setString(5,us.getSDT());
 		pstm.setString(6,us.getAddress());
 		pstm.executeUpdate();
+	}
+	
+	/* -- Lấy list tài khoản -- */
+	public static List<Login> listUser(Connection conn) throws SQLException {
+		String sql = "Select username, password, type from ThongTin";
+		PreparedStatement pstm = conn.prepareStatement(sql);
+		ResultSet rs = pstm.executeQuery();
+		List<Login> list = new ArrayList<Login>();
+		while (rs.next()) {
+			String username = rs.getString("username");
+			String type = rs.getString("type");
+			String password = rs.getString("password");
+			
+			Login pr = new Login(username, password, "", type, "", "");
+			list.add(pr);
+		}
+		return list;
 	}
 }

@@ -53,8 +53,8 @@ function openTab(nameTab) {
     // mở tab
     switch(nameTab) {
         case 'Trang Chủ': document.getElementsByClassName('home')[0].style.display = 'block'; break;
-        case 'Sản Phẩm': document.getElementsByClassName('sanpham')[0].style.display = 'block'; break;
+        case 'Điện Thoại': document.getElementsByClassName('sanpham')[0].style.display = 'block'; break;
         case 'Đơn Hàng': document.getElementsByClassName('donhang')[0].style.display = 'block'; break;
-        case 'Khách Hàng': document.getElementsByClassName('khachhang')[0].style.display = 'block'; break;
+        case 'Tài Khoản': document.getElementsByClassName('khachhang')[0].style.display = 'block'; break;
     }
 }
