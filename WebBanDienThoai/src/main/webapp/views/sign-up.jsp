@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +14,7 @@
         <div class="login-left">
             <div class="login-header sign-up-header">
                 <h1>Sign Up &#9872;</h1>
-                <p>Please sign-up to discover the store.</p>
+                <p>Please sign-up to discovers the store.</p>
             </div>
             <form method="POST" action="${pageContext.request.contextPath}/sign-up" class="login-form">
                 <div class="login-form-content">

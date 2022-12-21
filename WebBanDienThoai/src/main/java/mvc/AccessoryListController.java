@@ -47,7 +47,6 @@ public class AccessoryListController extends HttpServlet {
 		List<Product> list=null;
 		try {
 			list=ProductDB.listAccessory(conn);
-			System.out.print(list.isEmpty());
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
