@@ -6,7 +6,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import utils.ProductDB;
+
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import bean.Product;
+import conn.DBConnection;
 
 /**
  * Servlet implementation class AdminController
@@ -28,6 +36,30 @@ public class AdminController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		Connection conn=null;
+		try {
+			conn=DBConnection.getConnection();
+		} catch (ClassNotFoundException | SQLException e1) {
+			//TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		List<Product> list=null;
+		try {
+			list=ProductDB.listProduct(conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		List<Product> list2=null;
+		try {
+			list2=ProductDB.listAccessory(conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("AccessoryList", list2);
+		request.setAttribute("ProductList", list);		
+		response.setContentType("text/html;charset=UTF-8");
+		
 		RequestDispatcher dispatcher = request.getServletContext()
                 .getRequestDispatcher("/views/admin.jsp");
         dispatcher.forward(request, response);

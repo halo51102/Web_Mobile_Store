@@ -48,6 +48,7 @@ public class ProductListController extends HttpServlet{
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		request.setAttribute("ProductList", list);		
 		response.setContentType("text/html;charset=UTF-8");
 		RequestDispatcher dispatcher=request.getServletContext()
@@ -123,7 +124,7 @@ public class ProductListController extends HttpServlet{
 					.getRequestDispatcher("productList");
 			dis.forward(request,response);
 		}else {
-			response.sendRedirect("productList");
+			response.sendRedirect("admin");
 		}
 	}
 }

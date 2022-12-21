@@ -68,20 +68,18 @@
                     <th style="width: 15%">Hành động</th>
                 </tr>
             </table>
-
             <!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
             <div class="table-content">
                 <table class="table-outline hideImg">
-                    <tr>
-                        <td style="width: 5%"> STT </td>
-                        <td style="width: 10%"> Mã SP </td>
-                        <td style="width: 40%">
-                            <a title="Xem chi tiết" target="_blank" href=""> Tên SP </a>
-                            <img src=""></img>
-                        </td>
-                        <td style="width: 15%"> Giá </td>
-                        <td style="width: 15%"> Danh mục </td>
-                        <td style="width: 15%">
+                    
+                    <c:forEach items="${ProductList}"  var="product" >
+					<tr>
+					<td>1</td>
+					<td>${product.id}</td>
+					<td>${product.name}</td>
+					<td>${product.cost}</td>
+					<td>${product.type}</td>
+					<td style="width: 15%">
                             <div class="tooltip">
                                 <i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i>
                                 <span class="tooltiptext">Sửa</span>
@@ -91,7 +89,27 @@
                                 <span class="tooltiptext">Xóa</span>
                             </div>
                         </td>
-                    </tr>
+					</tr>
+					</c:forEach>
+					<c:forEach items="${AccessoryList}"  var="product" >
+					<tr>
+					<td>1</td>
+					<td>${product.id}</td>
+					<td>${product.name}</td>
+					<td>${product.cost}</td>
+					<td>${product.type}</td>
+					<td style="width: 15%">
+                            <div class="tooltip">
+                                <i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i>
+                                <span class="tooltiptext">Sửa</span>
+                            </div>
+                            <div class="tooltip">
+                                <i class="fa fa-trash" onclick="xoaSanPham()"></i>
+                                <span class="tooltiptext">Xóa</span>
+                            </div>
+                        </td>
+					</tr>
+					</c:forEach>
                 </table>
             </div>
 
@@ -109,22 +127,24 @@
 
             <div id="khungThemSanPham" class="overlay">
                 <span class="close" onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
+                <form method="POST" action="${pageContext.request.contextPath}/productList"
+          name="addProduct" onsubmit="return validateForm()" >
                 <table class="overlayTable table-outline table-content table-header">
                     <tr>
                         <th colspan="2">Thêm Sản Phẩm</th>
                     </tr>
                     <tr>
                         <td>Mã sản phẩm:</td>
-                        <td><input type="text" id="maspThem"></td>
+                        <td><input type="text" name="idpr"></td>
                     </tr>
                     <tr>
                         <td>Tên sản phẩm:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="namepr"></td>
                     </tr>
                     <tr>
                         <td>Danh mục:</td>
                         <td>
-                            <select name="chonCompany" onchange="autoMaSanPham(this.value)">
+                            <select name="typepr" onchange="autoMaSanPham(this.value)">
                                 <script>
                                     var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
                                     for(var c of company) {
@@ -136,11 +156,11 @@
                     </tr>
                     <tr>
                         <td>Giá tiền:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="cost"></td>
                     </tr>
                     <tr>
                         <td>Số lượng:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="amountpr"></td>
                     </tr>
                     <tr>
                         <td>Hình 1:</td>
@@ -172,12 +192,13 @@
                     </tr>
                     <tr>
                         <td>Mô tả:</td>
-                        <td><input type="text"></td>
+                        <td><input type="text" name="despr"></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="table-footer"> <button onclick="themSanPham()">THÊM</button> </td>
                     </tr>
                 </table>
+                </form>
             </div>
             <div id="khungSuaSanPham" class="overlay"></div>
         </div> <!-- // sanpham -->
