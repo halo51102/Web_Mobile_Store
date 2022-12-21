@@ -18,6 +18,7 @@
    
     <div class="container-product container-prodetails">
         <section id="prodetails" class="section-p1">
+        
             <div class="single-pro-img">
                 <img src="${product.p1}" 
                 id="MainImg" alt="">
@@ -43,13 +44,18 @@
             </div>
     
             <div class="single-pro-details">
+            <form method="POST" action="${pageContext.request.contextPath}/cart"
+          name="addProductToCart" onsubmit="return validateForm()" >
+          		<input type="hidden" name="idpr" value="${product.id}" />
                 <h2>${product.name}</h2>
                 <h3>${product.cost}</h3>
                 <input type="number" value="1">
                 <button>Add to Cart</button>
                 <h4>Product Details</h4>
                 <span>${product.describe}</span>
+            </form>
             </div>
+           
         </section>
     </div>
 

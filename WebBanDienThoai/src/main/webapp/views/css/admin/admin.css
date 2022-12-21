@@ -102,7 +102,7 @@ header h2 {
 
 .main>div {
     /* Mặc định ẩn mọi thứ trong main */
-    display: block;
+    display: none;
 }
 
 /* ===================== HOME ================== */
