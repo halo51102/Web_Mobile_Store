@@ -6,8 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Admin</title>
-<link rel="stylesheet" href="css/admin/admin.css">
-<script src="script.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous">
+<link rel="stylesheet" href="/WebBanDienThoai/views/css/admin/admin.css">
+<script src="views/script.js"></script>
 </head>
 <body>
 	<header>
@@ -62,14 +64,14 @@
                     <th title="Sắp xếp" style="width: 10%" onclick="sortProductsTable('masp')">Mã</th>
                     <th title="Sắp xếp" style="width: 40%" onclick="sortProductsTable('ten')">Tên</th>
                     <th title="Sắp xếp" style="width: 15%" onclick="sortProductsTable('gia')">Giá</th>
-                    <th title="Sắp xếp" style="width: 15%" onclick="sortProductsTable('khuyenmai')">Khuyến mãi</th>
+                    <th title="Sắp xếp" style="width: 15%" onclick="sortProductsTable('khuyenmai')">Danh mục</th>
                     <th style="width: 15%">Hành động</th>
                 </tr>
             </table>
 
-			<!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
+            <!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
             <div class="table-content">
-            	<table class="table-outline hideImg">
+                <table class="table-outline hideImg">
                     <tr>
                         <td style="width: 5%"> STT </td>
                         <td style="width: 10%"> Mã SP </td>
@@ -78,14 +80,14 @@
                             <img src=""></img>
                         </td>
                         <td style="width: 15%"> Giá </td>
-                        <td style="width: 15%"> Khuyến mãi </td>
+                        <td style="width: 15%"> Danh mục </td>
                         <td style="width: 15%">
                             <div class="tooltip">
-                                <i class="fa fa-wrench" onclick="addKhungSuaSanPham(' + p.masp + ')"></i>
+                                <i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i>
                                 <span class="tooltiptext">Sửa</span>
                             </div>
                             <div class="tooltip">
-                                <i class="fa fa-trash" onclick="xoaSanPham(' + p.masp + ', '+p.name+')"></i>
+                                <i class="fa fa-trash" onclick="xoaSanPham()"></i>
                                 <span class="tooltiptext">Xóa</span>
                             </div>
                         </td>
@@ -120,7 +122,7 @@
                         <td><input type="text"></td>
                     </tr>
                     <tr>
-                        <td>Hãng:</td>
+                        <td>Danh mục:</td>
                         <td>
                             <select name="chonCompany" onchange="autoMaSanPham(this.value)">
                                 <script>
@@ -133,39 +135,44 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Hình:</td>
+                        <td>Giá tiền:</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng:</td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>Hình 1:</td>
                         <td>
                             <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
                             <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
                         </td>
                     </tr>
                     <tr>
-                        <td>Giá tiền:</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Số sao (số nguyên 0->5):</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Đánh giá (số nguyên):</td>
-                        <td><input type="text"></td>
-                    </tr>
-                    <tr>
-                        <td>Khuyến mãi:</td>
+                        <td>Hình 2:</td>
                         <td>
-                            <select>
-                                <option value="">Không</option>
-                                <option value="tragop">Trả góp</option>
-                                <option value="giamgia">Giảm giá</option>
-                                <option value="giareonline">Giá rẻ online</option>
-                                <option value="moiramat">Mới ra mắt</option>
-                            </select>
+                            <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
+                            <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
                         </td>
                     </tr>
                     <tr>
-                        <td>Giá trị khuyến mãi:</td>
-                        <td><input type="text" placeholder=""></td>
+                        <td>Hình 3:</td>
+                        <td>
+                            <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
+                            <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Hình 4:</td>
+                        <td>
+                            <img class="hinhDaiDien" id="anhDaiDienSanPhamThem" src="">
+                            <input type="file" accept="image/*" onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mô tả:</td>
+                        <td><input type="text"></td>
                     </tr>
                     <tr>
                         <td colspan="2" class="table-footer"> <button onclick="themSanPham()">THÊM</button> </td>

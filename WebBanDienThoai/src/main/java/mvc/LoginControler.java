@@ -26,12 +26,14 @@ public class LoginControler extends HttpServlet {
 		String password=request.getParameter("password");
 		
 		Login bean=new Login();
+		Login bean2=new Login();
 		Connection conn;
 		String errorString="";
 		
 		try {
 			conn=DBConnection.getConnection();
 			bean=DBUtils.findUser(conn, name, password);
+			bean2=DBUtils.findUserForSignUp(conn, name);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -40,13 +42,21 @@ public class LoginControler extends HttpServlet {
 		
 		request.setAttribute("bean",bean);
 		HttpSession ssid=request.getSession();
-		
+		HttpSession ssid2=request.getSession();
 		if(bean==null) {
 			RequestDispatcher rd=request.getRequestDispatcher("/views/login-error.jsp");
 			rd.forward(request, response);
 		}else {
-			ssid.setAttribute("ssid",bean.getName());
-			response.sendRedirect("home");
+			
+			String s1=new String("admin     ");
+			String s2=new String("customer  ");
+			if(bean2.getType().equals(s2)) {
+				ssid.setAttribute("ssid",bean2.getName());
+				response.sendRedirect("home");
+			}else {
+				ssid.setAttribute("ssid2",bean2.getName());
+				response.sendRedirect("admin");
+			}
 		}
 		
 		
