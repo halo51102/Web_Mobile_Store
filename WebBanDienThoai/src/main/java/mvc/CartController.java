@@ -25,21 +25,68 @@ import conn.DBConnection;
 @WebServlet(name="CartList",urlPatterns={"/cart"})
 public class CartController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CartController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public CartController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		Connection conn=null;
+		try {
+			conn=DBConnection.getConnection();
+		} catch (ClassNotFoundException | SQLException e1) {
+			//TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String idsp=(String)request.getParameter("idpr");
+
+		String tenpr=(String)request.getParameter("tenpr");
+		String slsp=(String)request.getParameter("slpr");
+		String costsp=(String)request.getParameter("cost");
+		String username=(String)request.getParameter("username");
+		int idpr=0;
+		int slpr=0;
+		int cost=0;
+		try {
+			idpr = Integer.parseInt(idsp);
+			slpr = Integer.parseInt(slsp);
+			cost = Integer.parseInt(costsp);
+		} catch (Exception e) {
+		}
+		System.out.println(idpr);
+		System.out.println(slpr);
+		String err=null;
+		Cart exist=new Cart();
+		try {
+			exist=CartDB.findCart(conn, idpr, username);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		if(exist!=null) {
+			RequestDispatcher dis=request.getServletContext()
+					.getRequestDispatcher("home");
+			dis.forward(request,response);
+		}else {
+			Cart crt=new Cart(idpr,tenpr,slpr,cost,username);
+			try {
+				CartDB.addCart(conn,crt);
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+				response.sendRedirect("cart?username="+username);
+			
+		}
+
+
 	}
 
 	/**
@@ -54,10 +101,9 @@ public class CartController extends HttpServlet {
 			//TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		String username=(String)request.getParameter("username");
-		System.out.print(username);
-		System.out.print((String)request.getParameter("username"));
+		
 		List<Cart> list=null;
 		try {
 			list=CartDB.listCart(conn,username);
@@ -67,8 +113,9 @@ public class CartController extends HttpServlet {
 		request.setAttribute("CartList", list);	
 		response.setContentType("text/html;charset=UTF-8");
 		RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/views/cart.jsp");
-        dispatcher.forward(request, response);
+				.getRequestDispatcher("/views/cart.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }

@@ -12,7 +12,7 @@ import bean.Login;
 public class DBUtils {
 	public static Login findUser(Connection conn,String userName,String password)
 	throws SQLException{
-		String sql="Select ThongTin.UserName,ThongTin.Password,ThongTin.Gender from ThongTin "
+		String sql="Select * from ThongTin "
 				+ " where ThongTin.UserName = ? and  ThongTin.password= ?";
 		
 		PreparedStatement pstm=conn.prepareStatement(sql);
@@ -21,9 +21,13 @@ public class DBUtils {
 		ResultSet rs=pstm.executeQuery();
 		if(rs.next()) {
 			String password_db= rs.getString("Password");
+			String sdt=rs.getString("sdt");
+			String address=rs.getString("address");
 			Login user= new Login();
 			user.setName(userName);
 			user.setPassword(password_db);
+			user.setAddress(address);
+			user.setSDT(sdt);
 			return user;
 		}
 		return null;

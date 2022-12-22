@@ -32,21 +32,22 @@
 						<tr>
 
 							<td>
+							
 								<div class="cart-info">
 									<img
 										src="https://www.nanodog.net/web/image/product.template/104/image_256/%5BAPP-IPH-12-64GB-MGJ53%5D%20iPhone%2012%20%7C%2064GB%20%7C%20Black?unique=43d7214"
 										alt="">
 									<div>
-										<p class="product-name">${cart.tenpr}</p>
+										<p class="product-name" name="tenpr">${cart.tenpr}</p>
 										<small class="price">Price: ${cart.cost} VND</small> <a
 											href="">Remove</a>
 									</div>
 								</div>
 							</td>
-							<td><input type="number" value="${cart.slpr}"></td>
+							<td><input type="number" name="slpr" value="${cart.slpr}"></td>
 							<td>##</td>
-							<td><a href="#">Thanh toán</a></td>
-
+							<td><a href="payment?idpr=${cart.idpr}&&username=${ssid}">Thanh toán</a></td>
+							
 						</tr>
 
 					</c:forEach>

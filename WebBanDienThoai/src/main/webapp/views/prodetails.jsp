@@ -44,12 +44,14 @@
             </div>
     
             <div class="single-pro-details">
-            <form method="POST" action="${pageContext.request.contextPath}/cart"
+            <form method="POST" action="${pageContext.request.contextPath}/cart?username=${ssid}"
           name="addProductToCart" onsubmit="return validateForm()" >
           		<input type="hidden" name="idpr" value="${product.id}" />
+          		<input type="hidden" name="tenpr" value="${product.name}" />
+          		<input type="hidden" name="cost" value="${product.cost}" />
                 <h2>${product.name}</h2>
                 <h3>${product.cost}</h3>
-                <input type="number" value="1">
+                <input type="number" name="slpr" value="1">
                 <button>Add to Cart</button>
                 <h4>Product Details</h4>
                 <span>${product.describe}</span>
