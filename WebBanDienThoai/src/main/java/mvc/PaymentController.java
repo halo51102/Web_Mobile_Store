@@ -14,8 +14,13 @@ import utils.ProductDB;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import bean.Bill;
+import bean.Cart;
 import bean.Login;
 import conn.DBConnection;
 
@@ -50,14 +55,29 @@ public class PaymentController extends HttpServlet {
 		String username=(String)request.getParameter("username");
 		String idsp=(String)request.getParameter("idpr");
 		String status="New Order";
+		
 		int idpr=0;
 		int slpr=0;
 		int sumpaid=0;
-		String tenpr="ab";
-		String date="20/10";
 		try {
 			idpr=Integer.parseInt(idsp);
 		}catch(Exception e) {}
+		
+		Cart crt=new Cart();
+		try {
+			crt=CartDB.findCart(conn, idpr,username);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		String tenpr=crt.getTenpr();
+		slpr=crt.getSlpr();
+		sumpaid=crt.getCost();
+		String pattern = "MM/dd/yyyy HH:mm:ss";
+		DateFormat df = new SimpleDateFormat(pattern);
+		Date today = Calendar.getInstance().getTime();   
+		String date = df.format(today);
+		
 		int idbill=0;
 		Bill exist=new Bill();
 		try {

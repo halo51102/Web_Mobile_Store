@@ -52,6 +52,21 @@ public class CartDB {
 	
 	public static Cart findCart(Connection conn, int idpr, String username)
 	throws SQLException{
+		String sql="Select * from Cart where idpr=? and username=?";
+		PreparedStatement pstm=conn.prepareStatement(sql);
+		pstm.setInt(1, idpr);
+		pstm.setString(2,username);
+		ResultSet rs=pstm.executeQuery();
+		while(rs.next()) {
+			int id=rs.getInt("idpr");
+			String name=rs.getString("tenpr");
+			String uname=rs.getString("username");
+			int cost=rs.getInt("cost");
+			int slpr=rs.getInt("slpr");
+			
+			Cart pr=new Cart(id,name,slpr,cost,uname);
+			return pr;
+		}
 		return null;
 	}
 	

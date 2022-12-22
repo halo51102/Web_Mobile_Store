@@ -94,10 +94,12 @@
 								<td style="width: 15%">${product.cost}</td>
 								<td style="width: 15%">${product.type}</td>
 								<td style="width: 15%">
+								    
 									<div class="tooltip">
 										<i class="fa fa-wrench" onclick="document.getElementById('khungSuaSanPham').style.transform = 'scale(1)'"></i> <span
 											class="tooltiptext">Sửa</span>
 									</div>
+									
 									<div class="tooltip">
 										<i class="fa fa-trash" onclick="xoaSanPham(${product.id})"></i> <span
 											class="tooltiptext">Xóa</span>
@@ -124,12 +126,12 @@
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
-						action="${pageContext.request.contextPath}/editProduct"
-						name="editProduct" onsubmit="return validateForm()">
+						action="${pageContext.request.contextPath}/productList"
+						name="addProduct" onsubmit="return validateForm()">					
 						<table
 							class="overlayTable table-outline table-content table-header">
 							<tr>
-								<th colspan="2">Sửa Sản Phẩm</th>
+								<th colspan="2">Thêm Sản Phẩm</th>
 							</tr>
 							<tr>
 								<td>Mã sản phẩm:</td>
@@ -203,16 +205,16 @@
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
-						action="${pageContext.request.contextPath}/productList"
-						name="addProduct" onsubmit="return validateForm()">
+						action="${pageContext.request.contextPath}/editProduct"
+						name="editProduct" onsubmit="return validateForm()">
 						<table
 							class="overlayTable table-outline table-content table-header">
 							<tr>
-								<th colspan="2">Thêm Sản Phẩm</th>
+								<th colspan="2">Sửa Sản Phẩm</th>
 							</tr>
 							<tr>
 								<td>Mã sản phẩm:</td>
-								<td><input type="text" name="idpr"></td>
+								<td><input type="text" name="idpr" value="${editpr.id}"></td>
 							</tr>
 							<tr>
 								<td>Tên sản phẩm:</td>
@@ -272,7 +274,7 @@
 							</tr>
 							<tr>
 								<td colspan="2" class="table-footer">
-									<button onclick="themSanPham()">THÊM</button>
+									<button onclick="themSanPham()">SỬA</button>
 								</td>
 							</tr>
 						</table>
