@@ -129,7 +129,7 @@ public class VoucherListController extends HttpServlet{
 					.getRequestDispatcher("voucherList");
 			dis.forward(request,response);
 		}else {
-			response.sendRedirect("voucherList");
+			response.sendRedirect("admin");
 		}
 	}
 }

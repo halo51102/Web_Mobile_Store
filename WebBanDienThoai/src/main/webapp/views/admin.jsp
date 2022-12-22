@@ -82,7 +82,7 @@
 						<th style="width: 15%">Hành động</th>
 					</tr>
 				</table>
-				<!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
+		
 				<div class="table-content">
 					<table class="table-outline hideImg">
 
@@ -95,11 +95,11 @@
 								<td style="width: 15%">${product.type}</td>
 								<td style="width: 15%">
 									<div class="tooltip">
-										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
+										<i class="fa fa-wrench" onclick="document.getElementById('khungSuaSanPham').style.transform = 'scale(1)'"></i> <span
 											class="tooltiptext">Sửa</span>
 									</div>
 									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaSanPham()"></i> <span
+										<i class="fa fa-trash" onclick="xoaSanPham(${product.id})"></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -121,6 +121,85 @@
 				</div>
 
 				<div id="khungThemSanPham" class="overlay">
+					<span class="close"
+						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
+					<form method="POST"
+						action="${pageContext.request.contextPath}/editProduct"
+						name="editProduct" onsubmit="return validateForm()">
+						<table
+							class="overlayTable table-outline table-content table-header">
+							<tr>
+								<th colspan="2">Sửa Sản Phẩm</th>
+							</tr>
+							<tr>
+								<td>Mã sản phẩm:</td>
+								<td><input type="text" name="idpr"></td>
+							</tr>
+							<tr>
+								<td>Tên sản phẩm:</td>
+								<td><input type="text" name="namepr"></td>
+							</tr>
+							<tr>
+								<td>Danh mục:</td>
+								<td><select name="typepr"
+									onchange="autoMaSanPham(this.value)">
+										<script>
+                                    var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
+                                    for(var c of company) {
+                                        document.writeln(`<option value="`+c+`">`+c+`</option>`);
+                                    }
+                                </script>
+								</select></td>
+							</tr>
+							<tr>
+								<td>Giá tiền:</td>
+								<td><input type="text" name="cost"></td>
+							</tr>
+							<tr>
+								<td>Số lượng:</td>
+								<td><input type="text" name="amountpr"></td>
+							</tr>
+							<tr>
+								<td>Hình 1:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 2:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 3:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 4:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Mô tả:</td>
+								<td><input type="text" name="despr"></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="table-footer">
+									<button onclick="themSanPham()">THÊM</button>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="khungSuaSanPham" class="overlay">
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
@@ -199,9 +278,8 @@
 						</table>
 					</form>
 				</div>
-				<div id="khungSuaSanPham" class="overlay"></div>
 			</div>
-			<!-- // sanpham -->
+			<!-- // dienthoai ----------------------------------------------------------------------------------->
 
 
 			<!-- Phụ kiện -->
@@ -255,12 +333,12 @@
 					</select> <input type="text" placeholder="Tìm kiếm..."
 						onkeyup="timKiemSanPham(this)">
 					<button
-						onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
+						onclick="document.getElementById('khungThemPhuKien').style.transform = 'scale(1)'; autoMaSanPham()">
 						<i class="fa fa-plus-square"></i> Thêm sản phẩm
 					</button>
 				</div>
 
-				<div id="khungThemSanPham" class="overlay">
+				<div id="khungThemPhuKien" class="overlay">
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
@@ -373,20 +451,24 @@
 				<div class="table-content">
 					<table class="table-outline hideImg">
 
-						<c:forEach items="${AccessoryList}" var="product">
+						<c:forEach items="${VoucherList}" var="voucher">
 							<tr>
-								<td style="width: 5%">1</td>
-								<td style="width: 10%">${product.id}</td>
-								<td style="width: 40%">${product.name}</td>
-								<td style="width: 15%">${product.cost}</td>
-								<td style="width: 15%">${product.type}</td>
-								<td style="width: 15%">
+								<td style="width: 5%">${voucher.id}</td>
+								<td style="width: 15%">${voucher.tenVC}</td>
+								<td style="width: 20%">${voucher.HDSD}</td>
+								<td style="width: 10%">${voucher.thoiGianBD}</td>
+								<td style="width: 10%">${voucher.thoiGianKT}</td>
+								<td style="width: 5%">${voucher.tienGiamPT}</td>
+								<td style="width: 10%">${voucher.tienGiamDong}</td>
+								<td style="width: 15%">${voucher.dieuKien}</td>
+								<td style="width: 5%">${voucher.soLuong}</td>
+								<td style="width: 5%">
 									<div class="tooltip">
 										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
 											class="tooltiptext">Sửa</span>
 									</div>
 									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaSanPham()"></i> <span
+										<i class="fa fa-trash" onclick="xoaVoucher(${voucher.id})"></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -396,97 +478,68 @@
 				</div>
 
 				<div class="table-footer">
-					<select name="kieuTimSanPham">
-						<option value="ma">Tìm theo mã</option>
-						<option value="ten">Tìm theo tên</option>
-					</select> <input type="text" placeholder="Tìm kiếm..."
-						onkeyup="timKiemSanPham(this)">
 					<button
-						onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
+						onclick="document.getElementById('khungThemVoucher').style.transform = 'scale(1)'; autoMaSanPham()">
 						<i class="fa fa-plus-square"></i> Thêm sản phẩm
 					</button>
 				</div>
 
-				<div id="khungThemSanPham" class="overlay">
+				<div id="khungThemVoucher" class="overlay">
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
-						action="${pageContext.request.contextPath}/productList"
-						name="addProduct" onsubmit="return validateForm()">
+						action="${pageContext.request.contextPath}/voucherList"
+						name="addVoucher" onsubmit="return validateForm()">
 						<table
 							class="overlayTable table-outline table-content table-header">
 							<tr>
-								<th colspan="2">Thêm Sản Phẩm</th>
+								<th colspan="2">Thêm Voucher</th>
 							</tr>
 							<tr>
-								<td>Mã sản phẩm:</td>
-								<td><input type="text" name="idpr"></td>
+								<td>Mã voucher:</td>
+								<td><input type="text" name="id"></td>
 							</tr>
 							<tr>
-								<td>Tên sản phẩm:</td>
-								<td><input type="text" name="namepr"></td>
+								<td>Tên voucher:</td>
+								<td><input type="text" name="TenVC"></td>
 							</tr>
 							<tr>
-								<td>Danh mục:</td>
-								<td><select name="typepr"
-									onchange="autoMaSanPham(this.value)">
-										<script>
-                                    var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
-                                    for(var c of company) {
-                                        document.writeln(`<option value="`+c+`">`+c+`</option>`);
-                                    }
-                                </script>
-								</select></td>
+								<td>HDSD:</td>
+								<td><input type="text" name="HDSD"></td>
 							</tr>
 							<tr>
-								<td>Giá tiền:</td>
-								<td><input type="text" name="cost"></td>
+								<td>Thời gian bắt đầu:</td>
+								<td><input type="text" name="ThoiGianBD"></td>
+							</tr>
+							<tr>
+								<td>Thời gian kết thúc:</td>
+								<td><input type="text" name="ThoiGianBD"></td>
+							</tr>
+							<tr>
+								<td>Giảm (%):</td>
+								<td><input type="text" name="ThoiGianBD"></td>
+							</tr>
+							<tr>
+								<td>Giảm (VNĐ):</td>
+								<td><input type="text" name="ThoiGianBD"></td>
+							</tr>
+							<tr>
+								<td>Điều kiện:</td>
+								<td><input type="text" name="ThoiGianBD"></td>
 							</tr>
 							<tr>
 								<td>Số lượng:</td>
-								<td><input type="text" name="amountpr"></td>
-							</tr>
-							<tr>
-								<td>Hình 1:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
-							</tr>
-							<tr>
-								<td>Hình 2:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
-							</tr>
-							<tr>
-								<td>Hình 3:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
-							</tr>
-							<tr>
-								<td>Hình 4:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
-							</tr>
-							<tr>
-								<td>Mô tả:</td>
-								<td><input type="text" name="despr"></td>
+								<td><input type="text" name="ThoiGianBD"></td>
 							</tr>
 							<tr>
 								<td colspan="2" class="table-footer">
-									<button onclick="themSanPham()">THÊM</button>
+									<button onclick="themVoucher()">THÊM</button>
 								</td>
 							</tr>
 						</table>
 					</form>
 				</div>
-				<div id="khungSuaSanPham" class="overlay"></div>
+				<div id="khungSuaVoucher" class="overlay"></div>
 			</div>
 			<!-- // sanpham -->
 
@@ -610,6 +663,34 @@
 	<!-- // JS Code -->
 	<script>
         addEventChangeTab();
+        
+        function xoaSanPham(id)  {
+            var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
+            if(result)  {            	
+          	  window.location.href= "deleteProduct?idpr=" + id;
+            } else {
+                return false;
+            }
+        }  
+        
+        function xoaVoucher(id)  {
+            var result = confirm("Bạn chắc chắn muốn xóa voucher này?");
+            if(result)  {            	
+          	  window.location.href= "deleteVoucher?idv=" + id;
+            } else {
+                return false;
+            }
+        }  
+        
+        function xoaPhuKien(id)  {
+            var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
+            if(result)  {            	
+          	  window.location.href= "deleteAccessory?idv=" + id;
+            } else {
+                return false;
+            }
+        }  
+        
     </script>
 </body>
 </html>

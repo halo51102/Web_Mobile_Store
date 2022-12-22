@@ -136,7 +136,7 @@ public class ProductEditController extends HttpServlet {
 			String s2=new String("accessory ");
 			if(pr.getCategory().equals(s1))
 			{
-				response.sendRedirect("productList");
+				response.sendRedirect("admin");
 			}
 			else if(pr.getCategory().equals(s2)) {
 				response.sendRedirect("accessoryList");

@@ -64,7 +64,7 @@ public class VoucherDeleteController extends HttpServlet {
             e.printStackTrace();
             err = e.getMessage();
         } 
-		response.sendRedirect(request.getContextPath() +"/voucherList");
+		response.sendRedirect(request.getContextPath() +"/admin");
 	}
 
 	/**

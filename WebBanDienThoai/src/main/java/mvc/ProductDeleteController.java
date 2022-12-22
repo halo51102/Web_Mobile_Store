@@ -47,12 +47,14 @@ public class ProductDeleteController extends HttpServlet {
             id = Integer.parseInt(idpr);
         } catch (Exception e) {
         }
+		
 		Product exist=new Product();
 		try {
 			exist=ProductDB.findProduct(conn, id);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
 		String err=null;
 		try {
 			ProductDB.deleteMonHoc(conn, id);
@@ -60,11 +62,12 @@ public class ProductDeleteController extends HttpServlet {
             e.printStackTrace();
             err = e.getMessage();
         } 
+		
 		String s1=new String("phone     ");
 		String s2=new String("accessory ");
 		if(exist.getCategory().equals(s1))
 		{
-			response.sendRedirect(request.getContextPath() +"/productList");
+			response.sendRedirect(request.getContextPath() +"/admin");
 		}
 		else if(exist.getCategory().equals(s2)) {
 			response.sendRedirect(request.getContextPath() +"/accessoryList");

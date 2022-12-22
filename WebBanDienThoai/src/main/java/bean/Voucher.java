@@ -4,15 +4,15 @@ import java.sql.Date;
 
 public class Voucher {
 	
-	private int id;
-	private String HDSD;
-	private String TenVC;
-	private String ThoiGianBD;
-	private String ThoiGianKT;
-	private int TienGiamPT;
-	private int TienGiamDong;
-	private String DieuKien;
-	private int SoLuong;
+	public int id;
+	public String HDSD;
+	public String TenVC;
+	public String ThoiGianBD;
+	public String ThoiGianKT;
+	public int TienGiamPT;
+	public int TienGiamDong;
+	public String DieuKien;
+	public int SoLuong;
 	
 	public Voucher() {
 		// TODO Auto-generated constructor stub
