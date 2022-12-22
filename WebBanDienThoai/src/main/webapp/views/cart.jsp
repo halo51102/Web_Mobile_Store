@@ -26,6 +26,7 @@
 						<th>Sản Phẩm</th>
 						<th>Số lượng</th>
 						<th>Tổng</th>
+						<th></th>
 					</tr>
 					<c:forEach items="${CartList}" var="cart">
 						<tr>
@@ -44,6 +45,7 @@
 							</td>
 							<td><input type="number" value="${cart.slpr}"></td>
 							<td>##</td>
+							<td><a href="#">Thanh toán</a></td>
 
 						</tr>
 

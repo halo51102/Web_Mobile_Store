@@ -29,6 +29,7 @@ function addEventChangeTab() {
                 turnOff_Active();
                 this.classList.add('active');
                 var tab = this.childNodes[1].data.trim();
+                
                 openTab(tab);
             })
         }
@@ -53,7 +54,9 @@ function openTab(nameTab) {
     // mở tab
     switch(nameTab) {
         case 'Trang Chủ': document.getElementsByClassName('home')[0].style.display = 'block'; break;
-        case 'Điện Thoại': document.getElementsByClassName('sanpham')[0].style.display = 'block'; break;
+        case 'Điện Thoại': document.getElementsByClassName('dienthoai')[0].style.display = 'block'; break;
+        case 'Phụ Kiện': document.getElementsByClassName('phukien')[0].style.display = 'block'; break;
+        case 'Voucher': document.getElementsByClassName('voucher')[0].style.display = 'block'; break;
         case 'Đơn Hàng': document.getElementsByClassName('donhang')[0].style.display = 'block'; break;
         case 'Tài Khoản': document.getElementsByClassName('khachhang')[0].style.display = 'block'; break;
     }

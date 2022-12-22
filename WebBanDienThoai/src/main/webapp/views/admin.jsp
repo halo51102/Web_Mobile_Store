@@ -10,7 +10,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 	crossorigin="anonymous">
 <link rel="stylesheet" href="/WebBanDienThoai/views/css/admin/admin.css">
-<script src="views/script.js"></script>
+<script src="/WebBanDienThoai/views/script.js"></script>
 </head>
 <body>
 	<header>
@@ -25,7 +25,11 @@
 				<li class="nav-item"><a class="nav-link active"><i
 						class="fa fa-home"></i> Trang Chủ</a></li>
 				<li class="nav-item"><a class="nav-link"><i
-						class="fa fa-th-large"></i> Điện Thoại</a></li>
+						class="fa fa-mobile"></i> Điện Thoại</a></li>
+				<li class="nav-item"><a class="nav-link"><i
+						class="fa fa-headphones"></i> Phụ Kiện</a></li>
+				<li class="nav-item"><a class="nav-link"><i
+						class="fa fa-gift"></i> Voucher</a></li>
 				<li class="nav-item"><a class="nav-link"><i
 						class="fa fa-file-text-o"></i> Đơn Hàng</a></li>
 				<li class="nav-item"><a class="nav-link"><i
@@ -40,6 +44,7 @@
 			</ul>
 		</aside>
 
+		<!-- KHUNG HIỂN THỊ -->
 		<div class="main">
 			<div class="home">
 				<div class="canvasContainer">
@@ -59,8 +64,8 @@
 				</div>
 			</div>
 
-			<!-- Sản Phẩm -->
-			<div class="sanpham">
+			<!-- Điện thoại -->
+			<div class="dienthoai">
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
@@ -83,11 +88,11 @@
 
 						<c:forEach items="${ProductList}" var="product">
 							<tr>
-								<td>1</td>
-								<td>${product.id}</td>
-								<td>${product.name}</td>
-								<td>${product.cost}</td>
-								<td>${product.type}</td>
+								<td style="width: 5%">1</td>
+								<td style="width: 10%">${product.id}</td>
+								<td style="width: 40%">${product.name}</td>
+								<td style="width: 15%">${product.cost}</td>
+								<td style="width: 15%">${product.type}</td>
 								<td style="width: 15%">
 									<div class="tooltip">
 										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
@@ -100,13 +105,281 @@
 								</td>
 							</tr>
 						</c:forEach>
+					</table>
+				</div>
+
+				<div class="table-footer">
+					<select name="kieuTimSanPham">
+						<option value="ma">Tìm theo mã</option>
+						<option value="ten">Tìm theo tên</option>
+					</select> <input type="text" placeholder="Tìm kiếm..."
+						onkeyup="timKiemSanPham(this)">
+					<button
+						onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
+						<i class="fa fa-plus-square"></i> Thêm sản phẩm
+					</button>
+				</div>
+
+				<div id="khungThemSanPham" class="overlay">
+					<span class="close"
+						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
+					<form method="POST"
+						action="${pageContext.request.contextPath}/productList"
+						name="addProduct" onsubmit="return validateForm()">
+						<table
+							class="overlayTable table-outline table-content table-header">
+							<tr>
+								<th colspan="2">Thêm Sản Phẩm</th>
+							</tr>
+							<tr>
+								<td>Mã sản phẩm:</td>
+								<td><input type="text" name="idpr"></td>
+							</tr>
+							<tr>
+								<td>Tên sản phẩm:</td>
+								<td><input type="text" name="namepr"></td>
+							</tr>
+							<tr>
+								<td>Danh mục:</td>
+								<td><select name="typepr"
+									onchange="autoMaSanPham(this.value)">
+										<script>
+                                    var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
+                                    for(var c of company) {
+                                        document.writeln(`<option value="`+c+`">`+c+`</option>`);
+                                    }
+                                </script>
+								</select></td>
+							</tr>
+							<tr>
+								<td>Giá tiền:</td>
+								<td><input type="text" name="cost"></td>
+							</tr>
+							<tr>
+								<td>Số lượng:</td>
+								<td><input type="text" name="amountpr"></td>
+							</tr>
+							<tr>
+								<td>Hình 1:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 2:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 3:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 4:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Mô tả:</td>
+								<td><input type="text" name="despr"></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="table-footer">
+									<button onclick="themSanPham()">THÊM</button>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="khungSuaSanPham" class="overlay"></div>
+			</div>
+			<!-- // sanpham -->
+
+
+			<!-- Phụ kiện -->
+			<div class="phukien">
+				<table class="table-header">
+					<tr>
+						<!-- Theo độ rộng của table content -->
+						<th title="Sắp xếp" style="width: 5%"
+							onclick="sortProductsTable('stt')">Stt</th>
+						<th title="Sắp xếp" style="width: 10%"
+							onclick="sortProductsTable('masp')">Mã</th>
+						<th title="Sắp xếp" style="width: 40%"
+							onclick="sortProductsTable('ten')">Tên</th>
+						<th title="Sắp xếp" style="width: 15%"
+							onclick="sortProductsTable('gia')">Giá</th>
+						<th title="Sắp xếp" style="width: 15%"
+							onclick="sortProductsTable('khuyenmai')">Danh mục</th>
+						<th style="width: 15%">Hành động</th>
+					</tr>
+				</table>
+				<!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
+				<div class="table-content">
+					<table class="table-outline hideImg">
+
 						<c:forEach items="${AccessoryList}" var="product">
 							<tr>
-								<td>1</td>
-								<td>${product.id}</td>
-								<td>${product.name}</td>
-								<td>${product.cost}</td>
-								<td>${product.type}</td>
+								<td style="width: 5%">1</td>
+								<td style="width: 10%">${product.id}</td>
+								<td style="width: 40%">${product.name}</td>
+								<td style="width: 15%">${product.cost}</td>
+								<td style="width: 15%">${product.type}</td>
+								<td style="width: 15%">
+									<div class="tooltip">
+										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
+											class="tooltiptext">Sửa</span>
+									</div>
+									<div class="tooltip">
+										<i class="fa fa-trash" onclick="xoaSanPham()"></i> <span
+											class="tooltiptext">Xóa</span>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+
+				<div class="table-footer">
+					<select name="kieuTimSanPham">
+						<option value="ma">Tìm theo mã</option>
+						<option value="ten">Tìm theo tên</option>
+					</select> <input type="text" placeholder="Tìm kiếm..."
+						onkeyup="timKiemSanPham(this)">
+					<button
+						onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
+						<i class="fa fa-plus-square"></i> Thêm sản phẩm
+					</button>
+				</div>
+
+				<div id="khungThemSanPham" class="overlay">
+					<span class="close"
+						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
+					<form method="POST"
+						action="${pageContext.request.contextPath}/productList"
+						name="addProduct" onsubmit="return validateForm()">
+						<table
+							class="overlayTable table-outline table-content table-header">
+							<tr>
+								<th colspan="2">Thêm Sản Phẩm</th>
+							</tr>
+							<tr>
+								<td>Mã sản phẩm:</td>
+								<td><input type="text" name="idpr"></td>
+							</tr>
+							<tr>
+								<td>Tên sản phẩm:</td>
+								<td><input type="text" name="namepr"></td>
+							</tr>
+							<tr>
+								<td>Danh mục:</td>
+								<td><select name="typepr"
+									onchange="autoMaSanPham(this.value)">
+										<script>
+                                    var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
+                                    for(var c of company) {
+                                        document.writeln(`<option value="`+c+`">`+c+`</option>`);
+                                    }
+                                </script>
+								</select></td>
+							</tr>
+							<tr>
+								<td>Giá tiền:</td>
+								<td><input type="text" name="cost"></td>
+							</tr>
+							<tr>
+								<td>Số lượng:</td>
+								<td><input type="text" name="amountpr"></td>
+							</tr>
+							<tr>
+								<td>Hình 1:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 2:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 3:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Hình 4:</td>
+								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
+									src=""> <input type="file" accept="image/*"
+									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
+								</td>
+							</tr>
+							<tr>
+								<td>Mô tả:</td>
+								<td><input type="text" name="despr"></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="table-footer">
+									<button onclick="themSanPham()">THÊM</button>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				<div id="khungSuaSanPham" class="overlay"></div>
+			</div>
+			<!-- // phukien -->
+
+			<!-- Voucher -->
+			<div class="voucher">
+				<table class="table-header">
+					<tr>
+						<!-- Theo độ rộng của table content -->
+						<th title="Sắp xếp" style="width: 5%"
+							onclick="sortProductsTable('stt')">Stt</th>
+						<th title="Sắp xếp" style="width: 15%"
+							onclick="sortProductsTable('masp')">Tên voucher</th>
+						<th title="Sắp xếp" style="width: 20%"
+							onclick="sortProductsTable('ten')">Guide</th>
+						<th title="Sắp xếp" style="width: 10%"
+							onclick="sortProductsTable('gia')">TG bắt đầu</th>
+						<th title="Sắp xếp" style="width: 10%"
+							onclick="sortProductsTable('khuyenmai')">TG kết thúc</th>
+						<th title="Sắp xếp" style="width: 5%"
+							onclick="sortProductsTable('khuyenmai')">Giảm (%)</th>
+						<th title="Sắp xếp" style="width: 10%"
+							onclick="sortProductsTable('khuyenmai')">Giảm (VNĐ)</th>
+						<th title="Sắp xếp" style="width: 15%"
+							onclick="sortProductsTable('khuyenmai')">Điều kiện</th>
+						<th title="Sắp xếp" style="width: 5%"
+							onclick="sortProductsTable('khuyenmai')">Số lượng</th>
+						<th style="width: 5%">Hành động</th>
+					</tr>
+				</table>
+				<!-- //Load database ở đây, nhớ chừa lại cái Hành động để t chỉnh tiếp -->
+				<div class="table-content">
+					<table class="table-outline hideImg">
+
+						<c:forEach items="${AccessoryList}" var="product">
+							<tr>
+								<td style="width: 5%">1</td>
+								<td style="width: 10%">${product.id}</td>
+								<td style="width: 40%">${product.name}</td>
+								<td style="width: 15%">${product.cost}</td>
+								<td style="width: 15%">${product.type}</td>
 								<td style="width: 15%">
 									<div class="tooltip">
 										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
@@ -277,17 +550,17 @@
 						<th title="Sắp xếp" style="width: 5%"
 							onclick="sortKhachHangTable('stt')">Stt <i
 							class="fa fa-sort"></i></th>
-						<th title="Sắp xếp" style="width: 15%"
-							onclick="sortKhachHangTable('hoten')">Họ tên <i
+						<th title="Sắp xếp" style="width: 30%"
+							onclick="sortKhachHangTable('hoten')">Tài Khoản <i
+							class="fa fa-sort"></i></th>
+						<th title="Sắp xếp" style="width: 25%"
+							onclick="sortKhachHangTable('email')">Mật khẩu <i
 							class="fa fa-sort"></i></th>
 						<th title="Sắp xếp" style="width: 20%"
-							onclick="sortKhachHangTable('email')">Email <i
-							class="fa fa-sort"></i></th>
-						<th title="Sắp xếp" style="width: 20%"
-							onclick="sortKhachHangTable('taikhoan')">Tài khoản <i
+							onclick="sortKhachHangTable('taikhoan')"># <i
 							class="fa fa-sort"></i></th>
 						<th title="Sắp xếp" style="width: 10%"
-							onclick="sortKhachHangTable('matkhau')">Mật khẩu <i
+							onclick="sortKhachHangTable('matkhau')"># <i
 							class="fa fa-sort"></i></th>
 						<th style="width: 10%">Hành động</th>
 					</tr>
@@ -298,10 +571,10 @@
 						<c:forEach items="${UserList}" var="user">
 							<tr>
 								<td style="width: 5%">1</td>
-								<td style="width: 20%">${user.name}</td>
-								<td style="width: 10%">${user.password}</td>
-								<td style="width: 15%">#</td>
+								<td style="width: 30%">${user.name}</td>
+								<td style="width: 25%">${user.password}</td>
 								<td style="width: 20%">#</td>
+								<td style="width: 10%%">#</td>
 								<td style="width: 10%">
 									<div class="tooltip">
 										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
