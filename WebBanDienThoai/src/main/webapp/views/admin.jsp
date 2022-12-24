@@ -22,8 +22,7 @@
 		<aside class="sidebar">
 			<ul class="nav">
 				<li class="nav-title">MENU</li>
-				<li class="nav-item"><a class="nav-link active"><i
-						class="fa fa-home"></i> Trang Chủ</a></li>
+				
 				<li class="nav-item"><a class="nav-link"><i
 						class="fa fa-mobile"></i> Điện Thoại</a></li>
 				<li class="nav-item"><a class="nav-link"><i
@@ -37,41 +36,23 @@
 				<li class="nav-item">
 					<hr>
 				</li>
-				<li class="nav-item"><a href="" class="nav-link"
-					onclick="logOutAdmin(); return true;"> <i
-						class="fa fa-arrow-left"></i> Đăng xuất (về Trang chủ)
+				<li class="nav-item"><a href="home" class="nav-link"
+					> <i
+						class="fa fa-arrow-left"></i> Đăng xuất
 				</a></li>
 			</ul>
 		</aside>
 
 		<!-- KHUNG HIỂN THỊ -->
 		<div class="main">
-			<div class="home">
-				<div class="canvasContainer">
-					<canvas id="myChart1"></canvas>
-				</div>
-
-				<div class="canvasContainer">
-					<canvas id="myChart2"></canvas>
-				</div>
-
-				<div class="canvasContainer">
-					<canvas id="myChart3"></canvas>
-				</div>
-
-				<div class="canvasContainer">
-					<canvas id="myChart4"></canvas>
-				</div>
-			</div>
 
 			<!-- Điện thoại -->
 			<div class="dienthoai">
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
-						<th title="Sắp xếp" style="width: 5%"
-							onclick="sortProductsTable('stt')">Stt</th>
-						<th title="Sắp xếp" style="width: 10%"
+						
+						<th title="Sắp xếp" style="width: 15%"
 							onclick="sortProductsTable('masp')">Mã</th>
 						<th title="Sắp xếp" style="width: 40%"
 							onclick="sortProductsTable('ten')">Tên</th>
@@ -88,8 +69,8 @@
 
 						<c:forEach items="${ProductList}" var="product">
 							<tr>
-								<td style="width: 5%">1</td>
-								<td style="width: 10%">${product.id}</td>
+								
+								<td style="width: 15%">${product.id}</td>
 								<td style="width: 40%">${product.name}</td>
 								<td style="width: 15%">${product.cost}</td>
 								<td style="width: 15%">${product.type}</td>
@@ -118,7 +99,7 @@
 						onkeyup="timKiemSanPham(this)">
 					<button
 						onclick="document.getElementById('khungThemSanPham').style.transform = 'scale(1)'; autoMaSanPham()">
-						<i class="fa fa-plus-square"></i> Thêm sản phẩm
+						<i class="fa fa-plus-square"></i> Thêm điện thoại
 					</button>
 				</div>
 
@@ -162,32 +143,20 @@
 								<td><input type="text" name="amountpr"></td>
 							</tr>
 							<tr>
-								<td>Hình 1:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 1:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 2:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 2:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 3:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 3:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 4:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 4:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
 								<td>Mô tả:</td>
@@ -284,14 +253,13 @@
 			<!-- // dienthoai ----------------------------------------------------------------------------------->
 
 
-			<!-- Phụ kiện -->
+			<!-- Phụ kiện --------------------------------------------------------------------------------------->
 			<div class="phukien">
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
-						<th title="Sắp xếp" style="width: 5%"
-							onclick="sortProductsTable('stt')">Stt</th>
-						<th title="Sắp xếp" style="width: 10%"
+						
+						<th title="Sắp xếp" style="width: 15%"
 							onclick="sortProductsTable('masp')">Mã</th>
 						<th title="Sắp xếp" style="width: 40%"
 							onclick="sortProductsTable('ten')">Tên</th>
@@ -308,8 +276,8 @@
 
 						<c:forEach items="${AccessoryList}" var="product">
 							<tr>
-								<td style="width: 5%">1</td>
-								<td style="width: 10%">${product.id}</td>
+								
+								<td style="width: 15%">${product.id}</td>
 								<td style="width: 40%">${product.name}</td>
 								<td style="width: 15%">${product.cost}</td>
 								<td style="width: 15%">${product.type}</td>
@@ -319,7 +287,7 @@
 											class="tooltiptext">Sửa</span>
 									</div>
 									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaSanPham()"></i> <span
+										<i class="fa fa-trash" onclick="xoaSanPham(${product.id})"></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -336,7 +304,7 @@
 						onkeyup="timKiemSanPham(this)">
 					<button
 						onclick="document.getElementById('khungThemPhuKien').style.transform = 'scale(1)'; autoMaSanPham()">
-						<i class="fa fa-plus-square"></i> Thêm sản phẩm
+						<i class="fa fa-plus-square"></i> Thêm phụ kiện
 					</button>
 				</div>
 
@@ -344,19 +312,19 @@
 					<span class="close"
 						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
 					<form method="POST"
-						action="${pageContext.request.contextPath}/productList"
+						action="${pageContext.request.contextPath}/accessoryList"
 						name="addProduct" onsubmit="return validateForm()">
 						<table
 							class="overlayTable table-outline table-content table-header">
 							<tr>
-								<th colspan="2">Thêm Sản Phẩm</th>
+								<th colspan="2">Thêm Phụ Kiện</th>
 							</tr>
 							<tr>
-								<td>Mã sản phẩm:</td>
+								<td>Mã phụ kiện:</td>
 								<td><input type="text" name="idpr"></td>
 							</tr>
 							<tr>
-								<td>Tên sản phẩm:</td>
+								<td>Tên phụ kiện:</td>
 								<td><input type="text" name="namepr"></td>
 							</tr>
 							<tr>
@@ -373,7 +341,7 @@
 							</tr>
 							<tr>
 								<td>Giá tiền:</td>
-								<td><input type="text" name="cost"></td>
+								<td><input type="text" name="costpr"></td>
 							</tr>
 							<tr>
 								<td>Số lượng:</td>
@@ -419,18 +387,18 @@
 						</table>
 					</form>
 				</div>
-				<div id="khungSuaSanPham" class="overlay"></div>
+				<div id="khungSuaPhuKien" class="overlay"></div>
 			</div>
-			<!-- // phukien -->
+			<!-- // phukien ---------------------------------------------------------------->
 
-			<!-- Voucher -->
+			<!-- Voucher ------------------------------------------------------------------->
 			<div class="voucher">
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
-						<th title="Sắp xếp" style="width: 5%"
-							onclick="sortProductsTable('stt')">Stt</th>
-						<th title="Sắp xếp" style="width: 15%"
+						<th title="Sắp xếp" style="width: 10%"
+							onclick="sortProductsTable('stt')">Mã voucher</th>
+						<th title="Sắp xếp" style="width: 10%"
 							onclick="sortProductsTable('masp')">Tên voucher</th>
 						<th title="Sắp xếp" style="width: 20%"
 							onclick="sortProductsTable('ten')">Guide</th>
@@ -455,8 +423,8 @@
 
 						<c:forEach items="${VoucherList}" var="voucher">
 							<tr>
-								<td style="width: 5%">${voucher.id}</td>
-								<td style="width: 15%">${voucher.tenVC}</td>
+								<td style="width: 10%">${voucher.id}</td>
+								<td style="width: 10%">${voucher.tenVC}</td>
 								<td style="width: 20%">${voucher.HDSD}</td>
 								<td style="width: 10%">${voucher.thoiGianBD}</td>
 								<td style="width: 10%">${voucher.thoiGianKT}</td>
@@ -482,7 +450,7 @@
 				<div class="table-footer">
 					<button
 						onclick="document.getElementById('khungThemVoucher').style.transform = 'scale(1)'; autoMaSanPham()">
-						<i class="fa fa-plus-square"></i> Thêm sản phẩm
+						<i class="fa fa-plus-square"></i> Thêm voucher
 					</button>
 				</div>
 
@@ -550,12 +518,11 @@
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
-						<th title="Sắp xếp" style="width: 5%"
-							onclick="sortDonHangTable('stt')">Stt <i class="fa fa-sort"></i></th>
+
 						<th title="Sắp xếp" style="width: 13%"
 							onclick="sortDonHangTable('madon')">Mã đơn <i
 							class="fa fa-sort"></i></th>
-						<th title="Sắp xếp" style="width: 7%"
+						<th title="Sắp xếp" style="width: 12%"
 							onclick="sortDonHangTable('khach')">Khách <i
 							class="fa fa-sort"></i></th>
 						<th title="Sắp xếp" style="width: 20%"
@@ -574,7 +541,26 @@
 					</tr>
 				</table>
 
-				<div class="table-content"></div>
+				<div class="table-content">
+					<table class="table-outline hideImg">
+					<c:forEach items="${BillList}" var="bill">
+							<tr>
+								<td style="width: 13%">${bill.idb}</td>
+								<td style="width: 12%">${bill.username}</td>
+								<td style="width: 20%">${bill.tenpr}</td>
+								<td style="width: 15%">${bill.sumpaid}</td>
+								<td style="width: 10%">${bill.date}</td>
+								<td style="width: 10%">${bill.status}</td>
+								<td style="width: 10%">
+									<div class="tooltip">
+										<i class="fa fa-trash" onclick="xoaVoucher(${bill.idb})"></i> <span
+											class="tooltiptext">Xóa</span>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+						</table>
+				</div>
 
 				<div class="table-footer">
 					<div class="timTheoNgay">
@@ -597,14 +583,12 @@
 			</div>
 			<!-- // don hang -->
 
-			<!-- Khách hàng -->
-			<div class="khachhang">
+			<!-- Tài Khoản -->
+			<div class="taikhoan">
 				<table class="table-header">
 					<tr>
 						<!-- Theo độ rộng của table content -->
-						<th title="Sắp xếp" style="width: 5%"
-							onclick="sortKhachHangTable('stt')">Stt <i
-							class="fa fa-sort"></i></th>
+						
 						<th title="Sắp xếp" style="width: 30%"
 							onclick="sortKhachHangTable('hoten')">Tài Khoản <i
 							class="fa fa-sort"></i></th>
@@ -612,10 +596,10 @@
 							onclick="sortKhachHangTable('email')">Mật khẩu <i
 							class="fa fa-sort"></i></th>
 						<th title="Sắp xếp" style="width: 20%"
-							onclick="sortKhachHangTable('taikhoan')"># <i
+							onclick="sortKhachHangTable('taikhoan')">Giới tính <i
 							class="fa fa-sort"></i></th>
-						<th title="Sắp xếp" style="width: 10%"
-							onclick="sortKhachHangTable('matkhau')"># <i
+						<th title="Sắp xếp" style="width: 15%"
+							onclick="sortKhachHangTable('matkhau')">Loại <i
 							class="fa fa-sort"></i></th>
 						<th style="width: 10%">Hành động</th>
 					</tr>
@@ -625,18 +609,15 @@
 					<table class="table-outline hideImg">
 						<c:forEach items="${UserList}" var="user">
 							<tr>
-								<td style="width: 5%">1</td>
+								
 								<td style="width: 30%">${user.name}</td>
 								<td style="width: 25%">${user.password}</td>
-								<td style="width: 20%">#</td>
-								<td style="width: 10%%">#</td>
+								<td style="width: 20%">${user.gender}</td>
+								<td style="width: 15%">${user.type}</td>
 								<td style="width: 10%">
+					
 									<div class="tooltip">
-										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
-											class="tooltiptext">Sửa</span>
-									</div>
-									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaSanPham()"></i> <span
+										<i class="fa fa-trash" onclick="xoaTaiKhoan()"></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -645,17 +626,7 @@
 					</table>
 				</div>
 
-				<div class="table-footer">
-					<select name="kieuTimKhachHang">
-						<option value="ten">Tìm theo họ tên</option>
-						<option value="email">Tìm theo email</option>
-						<option value="taikhoan">Tìm theo tài khoản</option>
-					</select> <input type="text" placeholder="Tìm kiếm..."
-						onkeyup="timKiemNguoiDung(this)">
-					<button onclick="openThemNguoiDung()">
-						<i class="fa fa-plus-square"></i> Thêm người dùng
-					</button>
-				</div>
+				
 			</div>
 			<!-- // khach hang -->
 		</div>
@@ -687,7 +658,7 @@
         function xoaPhuKien(id)  {
             var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
             if(result)  {            	
-          	  window.location.href= "deleteAccessory?idv=" + id;
+          	  window.location.href= "deleteAccessory?idpr=" + id;
             } else {
                 return false;
             }

@@ -126,7 +126,7 @@ public class AccessoryListController extends HttpServlet {
 					.getRequestDispatcher("accessoryList");
 			dis.forward(request,response);
 		}else {
-			response.sendRedirect("accessoryList");
+			response.sendRedirect("admin");
 		}
 	}
 

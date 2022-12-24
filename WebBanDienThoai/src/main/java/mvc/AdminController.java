@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import utils.BillDB;
 import utils.DBUtils;
 import utils.ProductDB;
 import utils.VoucherDB;
@@ -15,6 +16,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+import bean.Bill;
 import bean.Login;
 import bean.Product;
 import bean.Voucher;
@@ -75,6 +77,14 @@ public class AdminController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		List<Bill> list5= null;
+		try {
+			list5 = BillDB.listBill(conn);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		request.setAttribute("BillList", list5);	
 		request.setAttribute("VoucherList", list4);
 		request.setAttribute("UserList", list3);
 		request.setAttribute("AccessoryList", list2);

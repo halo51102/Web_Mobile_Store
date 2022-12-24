@@ -1,30 +1,33 @@
 package mvc;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import utils.ProductDB;
+import utils.BillDB;
+import utils.VoucherDB;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
-import bean.Product;
+import bean.Bill;
+import bean.Voucher;
 import conn.DBConnection;
 
 /**
- * Servlet implementation class ProductDeleteController
+ * Servlet implementation class Bill_List_Controller
  */
-@WebServlet("/deleteProduct")
-public class ProductDeleteController extends HttpServlet {
+public class Bill_List_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductDeleteController() {
+    public Bill_List_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,44 +37,24 @@ public class ProductDeleteController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Connection conn = null;
+		Connection conn=null;
 		try {
-			conn = DBConnection.getConnection();
+			conn=DBConnection.getConnection();
 		} catch (ClassNotFoundException | SQLException e1) {
+			//TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		String idpr=(String) request.getParameter("idpr");
-		int id=0;
+		List<Bill> list= null;
 		try {
-            id = Integer.parseInt(idpr);
-        } catch (Exception e) {
-        }
-		
-		Product exist=new Product();
-		try {
-			exist=ProductDB.findProduct(conn, id);
+			list = BillDB.listBill(conn);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
-		String err=null;
-		try {
-			ProductDB.deleteMonHoc(conn, id);
-		}catch(SQLException e) {
-            e.printStackTrace();
-            err = e.getMessage();
-        } 
-		
-		String s1=new String("phone     ");
-		String s2=new String("accessory ");
-		if(exist.getCategory().equals(s1))
-		{
-			response.sendRedirect(request.getContextPath() +"/admin");
-		}
-		else if(exist.getCategory().equals(s2)) {
-			response.sendRedirect(request.getContextPath() +"/admin");
-		}
+		request.setAttribute("BillList", list);		
+		response.setContentType("text/html;charset=UTF-8");
+		RequestDispatcher dispatcher=request.getServletContext()
+				.getRequestDispatcher("/views/managerBill.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

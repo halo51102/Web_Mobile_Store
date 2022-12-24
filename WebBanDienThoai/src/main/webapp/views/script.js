@@ -58,6 +58,25 @@ function openTab(nameTab) {
         case 'Phụ Kiện': document.getElementsByClassName('phukien')[0].style.display = 'block'; break;
         case 'Voucher': document.getElementsByClassName('voucher')[0].style.display = 'block'; break;
         case 'Đơn Hàng': document.getElementsByClassName('donhang')[0].style.display = 'block'; break;
-        case 'Tài Khoản': document.getElementsByClassName('khachhang')[0].style.display = 'block'; break;
+        case 'Tài Khoản': document.getElementsByClassName('taikhoan')[0].style.display = 'block'; break;
+    }
+}
+
+function timKiemSanPham(inp) {
+    var kieuTim = document.getElementsByName('kieuTimSanPham')[0].value;
+    var text = inp.value;
+
+    // Lọc
+    var vitriKieuTim = {'ma':1, 'ten':2}; // mảng lưu vị trí cột
+
+    var listTr_table = document.getElementsByClassName('dienthoai')[0].getElementsByClassName('table-content')[0].getElementsByTagName('tr');
+    for (var tr of listTr_table) {
+        var td = tr.getElementsByTagName('td')[vitriKieuTim[kieuTim]].innerHTML.toLowerCase();
+
+        if (td.indexOf(text.toLowerCase()) < 0) {
+            tr.style.display = 'none';
+        } else {
+            tr.style.display = '';
+        }
     }
 }

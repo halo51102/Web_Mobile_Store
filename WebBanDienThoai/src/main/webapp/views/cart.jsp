@@ -34,13 +34,14 @@
 							<td>
 							
 								<div class="cart-info">
+								
 									<img
-										src="https://www.nanodog.net/web/image/product.template/104/image_256/%5BAPP-IPH-12-64GB-MGJ53%5D%20iPhone%2012%20%7C%2064GB%20%7C%20Black?unique=43d7214"
+										src=""
 										alt="">
 									<div>
 										<p class="product-name" name="tenpr">${cart.tenpr}</p>
 										<small class="price">Price: ${cart.cost} VND</small> <a
-											href="">Remove</a>
+											href="" onclick="xoaSanPham()">Remove</a>
 									</div>
 								</div>
 							</td>
@@ -57,10 +58,10 @@
 			</div>
 		</div>
 	</c:if>
-	<footer>
-		<div>@Copyright 2022</div>
-	</footer>
-
+	<script>
+		
+	</script>
+	
 
 </body>
 </html>

@@ -15,16 +15,16 @@ import bean.Product;
 import conn.DBConnection;
 
 /**
- * Servlet implementation class ProductDeleteController
+ * Servlet implementation class Accessory_Delete_Controller
  */
-@WebServlet("/deleteProduct")
-public class ProductDeleteController extends HttpServlet {
+@WebServlet("/deleteAccessory")
+public class Accessory_Delete_Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductDeleteController() {
+    public Accessory_Delete_Controller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -70,7 +70,7 @@ public class ProductDeleteController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() +"/admin");
 		}
 		else if(exist.getCategory().equals(s2)) {
-			response.sendRedirect(request.getContextPath() +"/admin");
+			response.sendRedirect(request.getContextPath() +"/accessoryList");
 		}
 	}
 

@@ -5,11 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/WebBanDienThoai/views/css/admin/admin.css">
 </head>
-<body><form method="POST" action="${pageContext.request.contextPath}/payment?idb=${NewBill.idb}">
-<h4>Số hóa đơn: ${NewBill.idb}</h4>
-            <table border="0">
-               <tr>
+<body><form method="POST" action="${pageContext.request.contextPath}/payment?idb=${NewBill.idb}" class="payment">
+            <table border="0" class="overlayTable table-outline table-content table-header">>
+                <tr>
+                    <th colspan="2">HÓA ĐƠN</th>
+                </tr>
+                <tr>
+                    <td>Số hóa đơn:</td>
+                    <td>${NewBill.idb}</td>
+                 </tr>
+                <tr>
                   <td>Tài khoản</td>
                   <td>${NewBill.username}</td>
                </tr>
@@ -52,9 +59,14 @@
                <tr>
                   <td colspan = "2">
                       <input type="submit" value="Submit" />
-                      <a href="${pageContext.request.contextPath}/home">Cancel</a>
+                      
                   </td>
                </tr>
+               <tr>
+                <td colspan="2" class="table-footer">
+                    <a href="${pageContext.request.contextPath}/home">Cancel</a>
+                </td>
+            </tr>
             </table>
          </form>
 </body>

@@ -106,10 +106,9 @@ header h2 {
 }
 
 /* ===================== HOME ================== */
-.home .canvasContainer {
-    display: inline-block;
-    width: 49%;
-    margin: 50px 0;
+
+.homeimg{
+	witdh: 1000px;
 }
 
 .flexContain {
@@ -426,6 +425,14 @@ input:checked+.slider:before {
     -ms-transform: translateX(13px);
     transform: translateX(13px);
 }
+
+
+
+.payment {
+	color: white;
+}
+
+
 
 /* Rounded sliders */
 .slider.round {

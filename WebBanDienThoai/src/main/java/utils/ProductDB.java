@@ -120,4 +120,12 @@ public class ProductDB {
         pstm.setInt(1, id);          
         pstm.executeUpdate();
 	}
+	
+	public static void deleteAccessory(Connection conn, int id) 
+			throws SQLException {
+        String sql = "Delete from Product where id=? and category='accessory'"; 
+        PreparedStatement pstm = conn.prepareStatement(sql); 
+        pstm.setInt(1, id);          
+        pstm.executeUpdate();
+	}
 }
