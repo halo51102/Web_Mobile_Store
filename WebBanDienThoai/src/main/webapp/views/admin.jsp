@@ -210,33 +210,22 @@
 								<td><input type="text" name="amountpr"></td>
 							</tr>
 							<tr>
-								<td>Hình 1:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 1:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 2:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 2:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 3:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 3:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 4:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 4:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
+							<tr>
 							<tr>
 								<td>Mô tả:</td>
 								<td><input type="text" name="despr"></td>
@@ -283,7 +272,7 @@
 								<td style="width: 15%">${product.type}</td>
 								<td style="width: 15%">
 									<div class="tooltip">
-										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
+										<i class="fa fa-wrench" onclick="document.getElementById('khungSuaPhuKien').style.transform = 'scale(1)'"></i> <span
 											class="tooltiptext">Sửa</span>
 									</div>
 									<div class="tooltip">
@@ -348,33 +337,22 @@
 								<td><input type="text" name="amountpr"></td>
 							</tr>
 							<tr>
-								<td>Hình 1:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 1:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 2:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 2:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 3:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 3:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
 							<tr>
-								<td>Hình 4:</td>
-								<td><img class="hinhDaiDien" id="anhDaiDienSanPhamThem"
-									src=""> <input type="file" accept="image/*"
-									onchange="capNhatAnhSanPham(this.files, 'anhDaiDienSanPhamThem')">
-								</td>
+								<td>Link Hình 4:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
 							</tr>
+							<tr>
 							<tr>
 								<td>Mô tả:</td>
 								<td><input type="text" name="despr"></td>
@@ -387,7 +365,74 @@
 						</table>
 					</form>
 				</div>
-				<div id="khungSuaPhuKien" class="overlay"></div>
+				<div id="khungSuaPhuKien" class="overlay">
+					<span class="close"
+						onclick="this.parentElement.style.transform = 'scale(0)';">&times;</span>
+					<form method="POST"
+						action="${pageContext.request.contextPath}/editProduct"
+						name="editProduct" onsubmit="return validateForm()">
+						<table
+							class="overlayTable table-outline table-content table-header">
+							<tr>
+								<th colspan="2">Sửa Phụ Kiện</th>
+							</tr>
+							<tr>
+								<td>Mã sản phẩm:</td>
+								<td><input type="text" name="idpr" value="${editpr.id}"></td>
+							</tr>
+							<tr>
+								<td>Tên sản phẩm:</td>
+								<td><input type="text" name="namepr"></td>
+							</tr>
+							<tr>
+								<td>Danh mục:</td>
+								<td><select name="typepr"
+									onchange="autoMaSanPham(this.value)">
+										<script>
+                                    var company = ["Apple", "Samsung", "Oppo", "Nokia", "Huawei", "Xiaomi","Realme", "Vivo", "Philips", "Mobell", "Mobiistar", "Itel","Coolpad", "HTC", "Motorola"];
+                                    for(var c of company) {
+                                        document.writeln(`<option value="`+c+`">`+c+`</option>`);
+                                    }
+                                </script>
+								</select></td>
+							</tr>
+							<tr>
+								<td>Giá tiền:</td>
+								<td><input type="text" name="cost"></td>
+							</tr>
+							<tr>
+								<td>Số lượng:</td>
+								<td><input type="text" name="amountpr"></td>
+							</tr>
+							<tr>
+								<td>Link Hình 1:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+							</tr>
+							<tr>
+								<td>Link Hình 2:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+							</tr>
+							<tr>
+								<td>Link Hình 3:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+							</tr>
+							<tr>
+								<td>Link Hình 4:</td>
+								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+							</tr>
+							<tr>
+							<tr>
+								<td>Mô tả:</td>
+								<td><input type="text" name="despr"></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="table-footer">
+									<button onclick="themSanPham()">SỬA</button>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div>
 			</div>
 			<!-- // phukien ---------------------------------------------------------------->
 

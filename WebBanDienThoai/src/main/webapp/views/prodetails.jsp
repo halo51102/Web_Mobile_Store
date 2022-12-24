@@ -53,7 +53,7 @@
                 <h2>${product.name}</h2>
                 <h3>${product.cost}</h3>
                 <input type="number" name="slpr" value="1">
-                <button >Add to Cart</button>
+                <button>Add to Cart</button>
                 <h4>Product Details</h4>
                 <span>${product.describe}</span>
             </form>
@@ -87,6 +87,7 @@
         smallimg[3].onclick=function(){
             MainImg.src=smallimg[3].src;
         }
+        
     </script>
 </body>
 </html>
