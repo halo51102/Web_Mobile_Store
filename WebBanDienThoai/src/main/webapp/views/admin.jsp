@@ -660,7 +660,10 @@
 								<td style="width: 20%">${user.gender}</td>
 								<td style="width: 15%">${user.type}</td>
 								<td style="width: 10%">
-					
+									<div class="tooltip">
+										<i class="fa fa-wrench" onclick="addKhungSuaSanPham()"></i> <span
+											class="tooltiptext">Sửa</span>
+									</div>
 									<div class="tooltip">
 										<i class="fa fa-trash" onclick="xoaTaiKhoan(${user.name})"></i> <span
 											class="tooltiptext">Xóa</span>
@@ -710,13 +713,14 @@
         }  
         
         function xoaTaiKhoan(id)  {
-            var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
+            var result = confirm("Bạn chắc chắn muốn xóa tài khoản này?");
             if(result)  {            	
           	  window.location.href= "deleteUser?username=" + id;
             } else {
                 return false;
             }
         }  
+        
         
     </script>
 </body>

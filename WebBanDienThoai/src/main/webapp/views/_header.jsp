@@ -25,11 +25,7 @@
 					</div>
 					<li><a id="notdropbtn" href=home#sale>Sale</a></li>
 					<div class="dropdown">
-					<li><a class="dropbtn">Info</a>
-						<div class="dropdown-content">
-							<a href="home#contact">Contact</a>
-							<a href="home#about">About</a>
-						</div>
+					<li><a id="notdropbtn" href="home#about">About</a></li>
 					</li>
 					</div>
 					<c:if test="${empty ssid}">

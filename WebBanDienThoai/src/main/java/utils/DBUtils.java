@@ -83,7 +83,7 @@ public class DBUtils {
 	}
 	public static void deleteUser(Connection conn, String username)
 	throws SQLException{
-		String sql="Delete from Cart where username=?";
+		String sql="Delete from ThongTin where username=?";
 		PreparedStatement pstm=conn.prepareStatement(sql);
 		pstm.setString(1,username);
 		pstm.executeUpdate();
