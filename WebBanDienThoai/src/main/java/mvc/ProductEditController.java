@@ -139,7 +139,7 @@ public class ProductEditController extends HttpServlet {
 				response.sendRedirect("admin");
 			}
 			else if(pr.getCategory().equals(s2)) {
-				response.sendRedirect("accessoryList");
+				response.sendRedirect("admin");
 			}
 		}
 		

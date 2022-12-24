@@ -73,6 +73,7 @@ public class PaymentController extends HttpServlet {
 		String tenpr=crt.getTenpr();
 		slpr=crt.getSlpr();
 		sumpaid=crt.getCost();
+		String h=crt.getH1();
 		String pattern = "MM/dd/yyyy HH:mm:ss";
 		DateFormat df = new SimpleDateFormat(pattern);
 		Date today = Calendar.getInstance().getTime();   
@@ -100,7 +101,7 @@ public class PaymentController extends HttpServlet {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		Bill bill=new Bill(idbill,username,idpr,tenpr,slpr,sumpaid,date,status,user.getName(),user.sdt,user.getAddress());
+		Bill bill=new Bill(idbill,username,idpr,tenpr,slpr,sumpaid,date,status,user.getName(),user.sdt,user.getAddress(),h);
 		String err=null;
 		try {
 			BillDB.addBill(conn, bill);

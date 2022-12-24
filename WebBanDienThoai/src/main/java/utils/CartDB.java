@@ -23,10 +23,11 @@ public class CartDB {
 				String uname=rs.getString("username");
 				int cost=rs.getInt("cost");
 				int slpr=rs.getInt("slpr");
-				
-				Cart pr=new Cart(id,name,slpr,cost,uname);
+				String h=rs.getString("hinh");
+				Cart pr=new Cart(id,name,slpr,cost,uname,h);
 				list.add(pr);
 			}
+			System.out.println("ko lỗi cart");
 			return list;
 		}
 	public static void deleteCart(Connection conn, int idpr, String username) 
@@ -40,13 +41,14 @@ public class CartDB {
 	
 	public static void addCart(Connection conn, Cart crt) 
 	throws SQLException{
-		String sql="Insert Cart values(?,?,?,?,?)";
+		String sql="Insert Cart values(?,?,?,?,?,?)";
 		PreparedStatement pstm=conn.prepareStatement(sql);
 		pstm.setInt(1,crt.getIdpr());
 		pstm.setString(2,crt.getTenpr());
 		pstm.setInt(3,crt.getSlpr());
 		pstm.setInt(4,crt.getCost());
 		pstm.setString(5,crt.getUsername());
+		pstm.setString(6,crt.getH1());
 		pstm.executeUpdate();
 	}
 	
@@ -63,8 +65,8 @@ public class CartDB {
 			String uname=rs.getString("username");
 			int cost=rs.getInt("cost");
 			int slpr=rs.getInt("slpr");
-			
-			Cart pr=new Cart(id,name,slpr,cost,uname);
+			String h=rs.getString("hinh");
+			Cart pr=new Cart(id,name,slpr,cost,uname,h);
 			return pr;
 		}
 		return null;

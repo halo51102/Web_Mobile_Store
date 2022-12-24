@@ -5,26 +5,26 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import utils.DBUtils;
 import utils.ProductDB;
 
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import bean.Product;
 import conn.DBConnection;
 
 /**
- * Servlet implementation class Accessory_Delete_Controller
+ * Servlet implementation class DeleteUserConller
  */
-@WebServlet("/deleteAccessory")
-public class Accessory_Delete_Controller extends HttpServlet {
+@WebServlet("/deleteUser")
+public class DeleteUserConller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Accessory_Delete_Controller() {
+    public DeleteUserConller() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,38 +40,15 @@ public class Accessory_Delete_Controller extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e1) {
 			e1.printStackTrace();
 		}
-		
-		String idpr=(String) request.getParameter("idpr");
-		int id=0;
-		try {
-            id = Integer.parseInt(idpr);
-        } catch (Exception e) {
-        }
-		
-		Product exist=new Product();
-		try {
-			exist=ProductDB.findProduct(conn, id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+		String user=(String)request.getParameter("username");
 		String err=null;
 		try {
-			ProductDB.deleteMonHoc(conn, id);
+			DBUtils.deleteUser(conn, user);
 		}catch(SQLException e) {
             e.printStackTrace();
             err = e.getMessage();
-        } 
-		
-		String s1=new String("phone     ");
-		String s2=new String("accessory ");
-		if(exist.getCategory().equals(s1))
-		{
-			response.sendRedirect(request.getContextPath() +"/admin");
-		}
-		else if(exist.getCategory().equals(s2)) {
-			response.sendRedirect(request.getContextPath() +"/admin");
-		}
+        }
+		response.sendRedirect(request.getContextPath() +"/admin");
 	}
 
 	/**

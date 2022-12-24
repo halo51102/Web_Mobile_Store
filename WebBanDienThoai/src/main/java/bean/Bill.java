@@ -4,11 +4,12 @@ public class Bill {
 	public int idb,sumpaid,slpr,idpr;
 	public String username, tenpr,date,status;
 	public String tenkh,sdt,address;
+	public String h1;
 	
 	public Bill() {
 		
 	}
-	public Bill(int bill, String uname, int idsp, String tensp, int slsp, int tong,String ngay, String tt, String tenkh, String sdt, String address) {
+	public Bill(int bill, String uname, int idsp, String tensp, int slsp, int tong,String ngay, String tt, String tenkh, String sdt, String address,String h) {
 		idb=bill;
 		username=uname;
 		idpr=idsp;
@@ -20,6 +21,14 @@ public class Bill {
 		this.tenkh=tenkh;
 		this.sdt=sdt;
 		this.address=address;
+		h1=h;
+	}
+	
+	public String getH1() {
+		return h1;
+	}
+	public void setH1(String h1) {
+		this.h1 = h1;
 	}
 	public int getIdb() {
 		return idb;

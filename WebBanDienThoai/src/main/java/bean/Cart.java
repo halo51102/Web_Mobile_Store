@@ -3,19 +3,29 @@ package bean;
 public class Cart {
 	public String tenpr, username;
 	public int idpr , slpr, cost;
+	public String h1;
 	
 	public Cart() {
 		
 	}
 	
-	public Cart(int id, String ten, int sl, int cos, String uname) {
+	public Cart(int id, String ten, int sl, int cos, String uname, String h1) {
 		idpr=id;
 		tenpr=ten;
 		slpr=sl;
 		cost=cos;
 		username=uname;
+		this.h1=h1;
 	}
 	
+	public String getH1() {
+		return h1;
+	}
+
+	public void setH1(String h1) {
+		this.h1 = h1;
+	}
+
 	public String getTenpr() {
 		return tenpr;
 	}

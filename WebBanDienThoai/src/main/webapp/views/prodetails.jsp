@@ -49,6 +49,7 @@
           		<input type="hidden" name="idpr" value="${product.id}" />
           		<input type="hidden" name="tenpr" value="${product.name}" />
           		<input type="hidden" name="cost" value="${product.cost}" />
+          		<input type="hidden" name="hinh" value="${product.p1}" />
                 <h2>${product.name}</h2>
                 <h3>${product.cost}</h3>
                 <input type="number" name="slpr" value="1">

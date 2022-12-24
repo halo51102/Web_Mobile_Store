@@ -183,7 +183,7 @@
 							</tr>
 							<tr>
 								<td>Mã sản phẩm:</td>
-								<td><input type="text" name="idpr" value="${editpr.id}"></td>
+								<td><input type="text" name="idpr"></td>
 							</tr>
 							<tr>
 								<td>Tên sản phẩm:</td>
@@ -553,7 +553,7 @@
 								<td style="width: 10%">${bill.status}</td>
 								<td style="width: 10%">
 									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaVoucher(${bill.idb})"></i> <span
+										<i class="fa fa-trash" onclick=""></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -617,7 +617,7 @@
 								<td style="width: 10%">
 					
 									<div class="tooltip">
-										<i class="fa fa-trash" onclick="xoaTaiKhoan()"></i> <span
+										<i class="fa fa-trash" onclick="xoaTaiKhoan(${user.name})"></i> <span
 											class="tooltiptext">Xóa</span>
 									</div>
 								</td>
@@ -659,6 +659,15 @@
             var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
             if(result)  {            	
           	  window.location.href= "deleteAccessory?idpr=" + id;
+            } else {
+                return false;
+            }
+        }  
+        
+        function xoaTaiKhoan(id)  {
+            var result = confirm("Bạn chắc chắn muốn xóa sản phẩm này?");
+            if(result)  {            	
+          	  window.location.href= "deleteUser?username=" + id;
             } else {
                 return false;
             }

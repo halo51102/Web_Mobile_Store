@@ -81,4 +81,11 @@ public class DBUtils {
 		}
 		return list;
 	}
+	public static void deleteUser(Connection conn, String username)
+	throws SQLException{
+		String sql="Delete from Cart where username=?";
+		PreparedStatement pstm=conn.prepareStatement(sql);
+		pstm.setString(1,username);
+		pstm.executeUpdate();
+	}
 }

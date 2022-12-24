@@ -20,20 +20,51 @@ public class BillDB {
 			List<Bill> list=new ArrayList<Bill>();
 			while(rs.next()) {
 				int id=rs.getInt("idb");
-				String tensp=rs.getString("tensp");
+				int idpr=rs.getInt("idpr");
+				String tensp=rs.getString("tenpr");
 				String uname=rs.getString("username");
 				int sumpaid=rs.getInt("sumpaid");
+				int slpr=rs.getInt("slpr");
 				String date=rs.getString("date");
 				String status=rs.getString("status");
-				
-				Bill pr=new Bill(id, uname, 0, tensp, 0, sumpaid,date, status,null, null, null);
+				String h=rs.getString("hinh");
+				String tenkh=rs.getString("tenkh");
+				String sdt=rs.getString("sdt");
+				String dc=rs.getString("address");
+				Bill pr=new Bill(id, uname, idpr, tensp, slpr, sumpaid,date, status,tenkh,sdt,dc,h);
 				list.add(pr);
 			}
 			return list;
 		}
+	public static List<Bill> listBillForUser(Connection conn, String username)
+			throws SQLException{
+			String sql="Select * from Bill where username=?";
+			PreparedStatement pstm=conn.prepareStatement(sql);
+			pstm.setString(1,username);
+			ResultSet rs=pstm.executeQuery();
+			List<Bill> list=new ArrayList<Bill>();
+			while(rs.next()) {
+				int id=rs.getInt("idb");
+				int idpr=rs.getInt("idpr");
+				String tensp=rs.getString("tenpr");
+				String uname=rs.getString("username");
+				int slpr=rs.getInt("slpr");
+				int sumpaid=rs.getInt("sumpaid");
+				String date=rs.getString("date");
+				String status=rs.getString("status");
+				String tenkh=rs.getString("tenkh");
+				String sdt=rs.getString("sdt");
+				String dc=rs.getString("address");
+				String h=rs.getString("hinh");
+				Bill pr=new Bill(id, uname, idpr, tensp, slpr, sumpaid,date, status,tenkh,sdt,dc,h);
+				list.add(pr);
+			}
+			System.out.println("ko lỗi");
+			return list;
+		}
 
 	public static void addBill(Connection conn, Bill bl) throws SQLException {
-		String sql = "Insert Bill values(?,?,?,?,?,?,?,?,?,?,?)";
+		String sql = "Insert Bill values(?,?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement pstm = conn.prepareStatement(sql);
 		pstm.setInt(1, bl.getIdb());
 		pstm.setString(2, bl.getUsername());
@@ -46,6 +77,7 @@ public class BillDB {
 		pstm.setString(9, bl.getTenkh());
 		pstm.setString(10, bl.getSdt());
 		pstm.setString(11, bl.getAddress());
+		pstm.setString(12,bl.getH1());
 		pstm.executeUpdate();
 	}
 
@@ -66,7 +98,8 @@ public class BillDB {
 			String tenkh = rs.getString("tenkh");
 			String sdt = rs.getString("sdt");
 			String address = rs.getString("address");
-			Bill b = new Bill(idb, username, idpr, tenpr, slpr, sumpaid, date, status, tenkh, sdt, address);
+			String h=rs.getString("hinh");
+			Bill b = new Bill(idb, username, idpr, tenpr, slpr, sumpaid, date, status, tenkh, sdt, address,h);
 			return b;
 		}
 		return null;

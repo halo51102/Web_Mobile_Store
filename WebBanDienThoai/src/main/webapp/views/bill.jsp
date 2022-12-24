@@ -28,7 +28,7 @@
 						<th>Tổng</th>
 						<th></th>
 					</tr>
-					<c:forEach items="${CartList}" var="cart">
+					<c:forEach items="${BillList}" var="bill">
 						<tr>
 
 							<td>
@@ -36,18 +36,18 @@
 								<div class="cart-info">
 								
 									<img
-										src="${cart.h1}"
+										src="${bill.h1}"
 										alt="">
 									<div>
-										<p class="product-name" name="tenpr">${cart.tenpr}</p>
-										<small class="price">Price: ${cart.cost} VND</small> <a
+										<p class="product-name" name="tenpr">${bill.tenpr}</p>
+										<small class="price">Price: ${bill.sumpaid} VND</small> <a
 											href="" onclick="xoaSanPham()">Remove</a>
 									</div>
 								</div>
 							</td>
-							<td><input type="number" name="slpr" value="${cart.slpr}"></td>
+							<td><input type="number" name="slpr" value="${bill.slpr}"></td>
 							<td>##</td>
-							<td><a href="payment?idpr=${cart.idpr}&&username=${ssid}">Thanh toán</a></td>
+							<td><a href="payment?idpr=${bill.idpr}&&username=${ssid}">Thanh toán</a></td>
 							
 						</tr>
 

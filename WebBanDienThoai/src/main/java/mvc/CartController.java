@@ -52,6 +52,7 @@ public class CartController extends HttpServlet {
 		String slsp=(String)request.getParameter("slpr");
 		String costsp=(String)request.getParameter("cost");
 		String username=(String)request.getParameter("username");
+		String h=(String) request.getParameter("hinh");
 		int idpr=0;
 		int slpr=0;
 		int cost=0;
@@ -75,7 +76,7 @@ public class CartController extends HttpServlet {
 					.getRequestDispatcher("home");
 			dis.forward(request,response);
 		}else {
-			Cart crt=new Cart(idpr,tenpr,slpr,cost,username);
+			Cart crt=new Cart(idpr,tenpr,slpr,cost,username,h);
 			try {
 				CartDB.addCart(conn,crt);
 			}catch(SQLException e) {
