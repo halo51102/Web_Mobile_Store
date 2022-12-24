@@ -41,7 +41,7 @@
 									<div>
 										<p class="product-name" name="tenpr">${cart.tenpr}</p>
 										<small class="price">Price: ${cart.cost} VND</small> <a
-											href="" onclick="xoaSanPham()">Remove</a>
+											href="" onclick="location.href='deleteCart?idpr=${cart.idpr}&&username=${ssid}'">Remove</a>
 									</div>
 								</div>
 							</td>

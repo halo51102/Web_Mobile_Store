@@ -20,7 +20,6 @@
 						<div class="dropdown-content">
 							<a href="product" method="post">Mobile Phone</a>
 							<a href="accessory" method="post">Accessory</a>
-							<a href="#">?</a>
 						</div>
 					</li>
 					</div>

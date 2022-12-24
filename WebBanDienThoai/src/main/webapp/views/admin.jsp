@@ -136,7 +136,7 @@
 							</tr>
 							<tr>
 								<td>Giá tiền:</td>
-								<td><input type="text" name="cost"></td>
+								<td><input type="text" name="costpr"></td>
 							</tr>
 							<tr>
 								<td>Số lượng:</td>
@@ -144,19 +144,19 @@
 							</tr>
 							<tr>
 								<td>Link Hình 1:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp1"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 2:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp2"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 3:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp3"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 4:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp4"></td>
 							</tr>
 							<tr>
 								<td>Mô tả:</td>
@@ -203,7 +203,7 @@
 							</tr>
 							<tr>
 								<td>Giá tiền:</td>
-								<td><input type="text" name="cost"></td>
+								<td><input type="text" name="costpr"></td>
 							</tr>
 							<tr>
 								<td>Số lượng:</td>
@@ -211,19 +211,19 @@
 							</tr>
 							<tr>
 								<td>Link Hình 1:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp1"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 2:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp2"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 3:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp3"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 4:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp4"></td>
 							</tr>
 							<tr>
 							<tr>
@@ -338,19 +338,19 @@
 							</tr>
 							<tr>
 								<td>Link Hình 1:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp1"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 2:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp2"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 3:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp3"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 4:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp4"></td>
 							</tr>
 							<tr>
 							<tr>
@@ -398,7 +398,7 @@
 							</tr>
 							<tr>
 								<td>Giá tiền:</td>
-								<td><input type="text" name="cost"></td>
+								<td><input type="text" name="costpr"></td>
 							</tr>
 							<tr>
 								<td>Số lượng:</td>
@@ -406,19 +406,19 @@
 							</tr>
 							<tr>
 								<td>Link Hình 1:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp1"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 2:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp2"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 3:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp3"></td>
 							</tr>
 							<tr>
 								<td>Link Hình 4:</td>
-								<td><input type="text" name="anhDaiDienSanPhamThem"></td>
+								<td><input type="text" name="prp4"></td>
 							</tr>
 							<tr>
 							<tr>
